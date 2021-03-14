@@ -33,7 +33,19 @@
     <link href="../static/css/demo.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-  <link href="../static/css/style_index.css" rel="stylesheet">
+    <link href="../static/css/style_index.css" rel="stylesheet">
+
+    <!--  Leaflet JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
@@ -49,7 +61,7 @@
                     </a>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <li>
                         <a class="nav-link" href="sam.html">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Sam</p>
@@ -61,7 +73,7 @@
                             <p>Eduardo</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item active"> 
                         <a class="nav-link" href="./carlos.html">
                             <i class="nc-icon nc-notes"></i>
                             <p>Carlos</p>
@@ -73,24 +85,6 @@
                             <p>Rodrigo</p>
                         </a>
                     </li>
-                    <!-- <li>
-                        <a class="nav-link" href="./icons.html">
-                            <i class="nc-icon nc-atom"></i>
-                            <p>Icons</p>
-                        </a>
-                    </li> -->
-                    <!-- <li>
-                        <a class="nav-link" href="./maps.html">
-                            <i class="nc-icon nc-pin-3"></i>
-                            <p>MAPS</p>
-                        </a>
-                    </li> -->
-                    <!-- <li>
-                        <a class="nav-link" href="./notifications.html">
-                            <i class="nc-icon nc-bell-55"></i>
-                            <p>Notifications</p>
-                        </a>
-                    </li> -->
                     <li class="nav-item active active-pro">
                         <a class="nav-link active" href="./about.html">
                             <i class="nc-icon nc-alien-33"></i>
@@ -113,59 +107,6 @@
                         <span class="navbar-toggler-bar burger-lines"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <!-- <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
-                                    <span class="d-lg-none">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-planet"></i>
-                                    <span class="notification">5</span>
-                                    <span class="d-lg-none">Notification</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Notification 1</a>
-                                    <a class="dropdown-item" href="#">Notification 2</a>
-                                    <a class="dropdown-item" href="#">Notification 3</a>
-                                    <a class="dropdown-item" href="#">Notification 4</a>
-                                    <a class="dropdown-item" href="#">Another notification</a>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                    <span class="d-lg-block">&nbsp;Search</span>
-                                </a>
-                            </li>
-                        </ul> -->
-                        <!-- <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
-                                    <span class="no-icon">Account</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="no-icon">Dropdown</span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
-                                    <span class="no-icon">Log out</span>
-                                </a>
-                            </li>
-                        </ul> -->
                     </div>
                 </div>
             </nav>
@@ -175,211 +116,102 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div style="font-size:x-large; text-align: center;" class="card-title">
-                                <span style="text-align: center;">NATIONAL FINANCIAL DEVELOPMENT ACROSS LAST TEN YEARS</span>
+                                <span style="text-align: center;"><h3><u><b> Municipalities detailed analysis for digital and financial services</b></u></h3></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card border-dark ">
+                                <div class="card-header">
+                                    <h3>From the options available, please select the data you want to look at:</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card ">
-                                <div class="card-header ">
-                                    <h4 class="card-title">Email Statistics</h4>
-                                    <p class="card-category">Last Campaign Performance</p>
-                                </div>
-                                <div class="card-body ">
-                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
+                            <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-header"><h4>Select a state</h4></div>
+                                        <div class="card-body text-dark">
+                                            <select id="stateDrop" onchange="stateChanged(this.value)"></select>
+                                        </div>
                                     </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                            </div>
+                            <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-header"><h4>Select a type of data</h4></div>
+                                        <div class="card-body text-dark">
+                                            <select id="serviceChoice" onchange="serviceChanged(this.value)">
+                                                <option value="1">Digital Services</option>
+                                                <option value="2">Financial Services</option>
+                                                <option value="3">Savings Accounts</option>
+                                                <option value="4">Loans Accounts</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-header"><h4>Select a type of distribution</h4></div>
+                                        <div class="card-body text-dark">
+                                            <select id="queryChoice" onchange="queryFill(this.value)">
+                                                <option value="1">By Municipality</option>
+                                                <option value="2">By services/accounts</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-header" id="responsive-header"><h4></h4></div>
+                                        <div class="card-body text-dark">
+                                            <select id="munChoice" onchange="subqueryFill(this.value)"></select>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header ">
+                                        <h4 class="card-title">Services Description</h4>
+                                    </div>
+                                    <div class="card-body ">
+                                        <div id="Description"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card ">
-                                <div class="card-header ">
-                                    <h4 class="card-title">Users Behavior</h4>
-                                    <p class="card-category">24 Hours performance</p>
-                                </div>
-                                <div class="card-body ">
-                                    <div id="chartHours" class="ct-chart"></div>
-                                </div>
-                                <div class="card-footer ">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header ">
+                                        <h4 class="card-title">Map Visualization by State and Municipality</h4>
                                     </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-history"></i> Updated 3 minutes ago
+                                    <div class="card-body ">
+                                        <div id="map" class="ct-chart"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4 class="card-title">2017 Sales</h4>
-                                    <p class="card-category">All products including Taxes</p>
+                                    <h4 class="card-title" id="distributionChart"></h4>
                                 </div>
                                 <div class="card-body ">
-                                    <div id="chartActivity" class="ct-chart"></div>
-                                </div>
-                                <div class="card-footer ">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-check"></i> Data information certified
-                                    </div>
+                                    <div id="pieplot"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card  card-tasks">
+                            <div class="card">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Tasks</h4>
-                                    <p class="card-category">Backend development</p>
+                                    <h4 style="text-align: center;" id="graph-header"></h4>
                                 </div>
                                 <div class="card-body ">
-                                    <div class="table-full-width">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="">
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                                    </td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" checked>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Create 4 Invisible User Experiences you Never Knew About</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="">
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Read "Following makes Medium better"</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="" disabled>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Unfollow 5 enemies from twitter</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="card-footer ">
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
-                                    </div>
+                                        <div id="plot"></div>
                                 </div>
                             </div>
                         </div>
@@ -531,16 +363,22 @@
 
     });
  Vendor JS Files -->
-<script src="../static/vendor/jquery/jquery.min.js"></script>
-<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../static/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="../static/vendor/php-email-form/validate.js"></script>
-<script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="../static/vendor/venobox/venobox.min.js"></script>
-<script src="../static/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="../static/vendor/aos/aos.js"></script>
+<script src="static/vendor/jquery/jquery.min.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="static/vendor/php-email-form/validate.js"></script>
+<script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/vendor/venobox/venobox.min.js"></script>
+<script src="static/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="static/vendor/aos/aos.js"></script>
 
 <!-- Template Main JS File -->
-<script src="../static/js/main.js"></script>
+<script src="static/js/main.js"></script>
 
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<!-- Local files -->
+<script src="static/js/lists.js"></script>
+<script src="static/js/logic.js"></script>
 </html>
