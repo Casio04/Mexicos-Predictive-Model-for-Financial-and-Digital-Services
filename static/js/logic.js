@@ -97,7 +97,7 @@ var mymap = L.map('map').setView([22.76843, -102.58141], 5);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/light-v9',
+    id: 'mapbox/dark-v10',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY
@@ -189,7 +189,7 @@ function digital_map(){
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + getColor(grades[i]+ 0.01) + '"></i> ' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+                grades[i] *100 + (grades[i + 1] * 100? '&ndash;' + grades[i + 1] * 100 + '<br>' : '+');
         }
     
         return div;
@@ -338,12 +338,12 @@ function financial_map(){
     catch{}
 
     function getColor2(d) {
-        return d > 3000000     ? '#0E4D64' :
-            d > 2000000      ? '#137177' :
-            d > 1000000    ? '#188977' :
-            d > 500000  ? '#39A96B' :
-            d > 100000     ? '#74C67A' :
-                                '#BFE1B0';
+        return d > 3000000     ? '#0C0575' :
+            d > 2000000      ? '#0C00C2' :
+            d > 1000000    ? '#005DC2' :
+            d > 500000  ? '#0083C2' :
+            d > 100000     ? '#00B6D4' :
+                                '#5AE4E9';
     }
     
     function highlightFeature(e) {
@@ -404,11 +404,11 @@ function financial_map(){
             labels = [];
     
         // loop through our density intervals and generate a label with a colored square for each interval
-        div.innerHTML += '<b>Mobile Banking </b><br><i style="text-align:center">Thousands</i><hr>'
+        div.innerHTML += '<b>Mobile Banking </b><br><p style="text-align:center; font-size: 14px">In Thousands<hr>'
     
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + getColor2(grades[i]) + '"></i> ' +
+                '<i style="background:' + getColor2(grades[i]+0.01) + '"></i> ' +
                 (grades[i]/1000) + (grades[i + 1] / 1000 ? '&ndash;' + grades[i + 1] / 1000 + '<br>' : '+');
         }
     
@@ -557,12 +557,12 @@ function savings_map(){
     catch{}
 
     function getColor3(d) {
-        return d > 8000000     ? '#0E4D64' :
-            d > 5000000      ? '#137177' :
-            d > 2000000    ? '#188977' :
-            d > 1000000 ? '#39A96B' :
-            d > 500000     ? '#74C67A' :
-                                '#BFE1B0';
+        return d > 8000000     ? '#D52B0C' :
+            d > 5000000      ? '#D55E0C' :
+            d > 2000000    ? '#D38900' :
+            d > 1000000 ? '#D3A600' :
+            d > 500000     ? '#CDC306' :
+                                '#DCD662';
     }
     
     function highlightFeature(e) {
@@ -629,7 +629,7 @@ function savings_map(){
     
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + getColor3(grades[i]) + '"></i> ' +
+                '<i style="background:' + getColor3(grades[i] + 0.01) + '"></i> ' +
                 (grades[i]/1000) + (grades[i + 1] / 1000 ? '&ndash;' + grades[i + 1] / 1000 + '<br>' : '+');
         }
     
@@ -775,12 +775,12 @@ function credits_map(){
     catch{}
 
     function getColor4(d) {
-        return d > 200000     ? '#0E4D64' :
-            d > 150000      ? '#137177' :
-            d > 100000    ? '#188977' :
-            d > 50000 ? '#39A96B' :
-            d > 10000     ? '#74C67A' :
-                                '#BFE1B0';
+        return d > 200000     ? '#8400FF' :
+            d > 150000      ? '#9F00FF' :
+            d > 100000    ? '#CA00FF' :
+            d > 50000 ? '#ED51FF' :
+            d > 10000     ? '#F165EE' :
+                                '#F28BEA';
     }
     
     function highlightFeature(e) {
@@ -847,7 +847,7 @@ function credits_map(){
     
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + getColor4(grades[i]) + '"></i> ' +
+                '<i style="background:' + getColor4(grades[i]+0.01) + '"></i> ' +
                 (grades[i]/1000) + (grades[i + 1] / 1000 ? '&ndash;' + grades[i + 1] / 1000 + '<br>' : '+');
         }
     
@@ -1085,11 +1085,12 @@ function chart(){
                 },
                 showlegend: false,
                 xaxis: {
-                  tickangle: -90
+                  tickangle: -90,
+                  automargin: true
                 },
                 yaxis: {
                   zeroline: false,
-                  gridwidth: 2
+                  gridwidth: 2                  
                 },
                 bargap :0.05
               };
