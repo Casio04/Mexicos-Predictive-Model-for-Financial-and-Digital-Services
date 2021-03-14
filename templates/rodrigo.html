@@ -175,7 +175,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div style="font-size:x-large; text-align: center;" class="card-title">
-                                <span style="text-align: center;">NATIONAL FINANCIAL DEVELOPMENT ACROSS LAST TEN YEARS</span>
+                                <span style="text-align: center;">MACHINE LEARNING INTERACTIVE</span>
                                 </div>
                             </div>
                         </div>
@@ -184,19 +184,22 @@
                         <div class="col-md-4">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Email Statistics</h4>
-                                    <p class="card-category">Last Campaign Performance</p>
+                                    <h4 class="card-title">SELECT A MUNICIPALITY</h4>
+                                    <p class="card-category">Let's work in your requierement</p>
+                                    <div class="well">
+                                        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                                      </div>
                                 </div>
                                 <div class="card-body ">
                                     <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                        <i class="fa fa-circle text-info"></i>
+                                        <i class="fa fa-circle text-danger"></i>
+                                        <i class="fa fa-circle text-warning"></i>
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                                        <i class="fa fa-clock-o"></i> 
                                     </div>
                                 </div>
                             </div>
@@ -204,21 +207,21 @@
                         <div class="col-md-8">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Users Behavior</h4>
-                                    <p class="card-category">24 Hours performance</p>
+                                    <h4 class="card-title">The Digital and Financial Inclusion Scenario 2020</h4>
+                                    <p class="card-category">The municipality you've select has the following performance</p>
                                 </div>
                                 <div class="card-body ">
                                     <div id="chartHours" class="ct-chart"></div>
                                 </div>
                                 <div class="card-footer ">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
+                                        <i class="fa fa-circle text-info"></i> 
+                                        <i class="fa fa-circle text-danger"></i>
+                                        <i class="fa fa-circle text-warning"></i>
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="fa fa-history"></i> Updated 3 minutes ago
+                                        <i class="fa fa-history"></i> 
                                     </div>
                                 </div>
                             </div>
@@ -228,16 +231,34 @@
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4 class="card-title">2017 Sales</h4>
-                                    <p class="card-category">All products including Taxes</p>
+                                    <h4 class="card-title">FORECAST FOR CREDIT CARDS PENETRATION</h4>
+                                    <p class="card-category">Please introduce the new value you'd like to evaluate</p>
                                 </div>
                                 <div class="card-body ">
                                     <div id="chartActivity" class="ct-chart"></div>
+                                    <h1>Forecast Penetration of Credit Cards</h1>
+                                    <!-- Main Input For Receiving Query to our ML -->
+                                   <form action="{{ url_for('predict')}}"method="post">
+                                    <input id= "Etiquetas" type="text" name="PC" placeholder="% Households with PC" required="required" />
+                                    <input id= "Etiquetas" type="text" name="Telefoný" placeholder="% Households with fixed telephone" required="required" />
+                                    <input id= "Etiquetas" type="text" name="PayTV" placeholder="% Households with pay TV" required="required" />
+                                    <input id= "Etiquetas" type="text" name="Personal Credits" placeholder="% Personal Credits" required="required" />
+                                    <input id= "Etiquetas" type="text" name="ATM" placeholder="ATM transactions by person" required="required" />
+                                    <input id= "Etiquetas" type="text" name="PTV" placeholder="Point of Sales Transactions by Person" required="required" />
+                                    <input id= "Etiquetas" type="text" name="MB" placeholder="Mobile Bank Contracts by Person" required="required" />
+                                    <br>
+                                    <button class= "but" type="submit" class="btn btn-primary btn-block btn-large">Predict Effects</button>
+                                   </form>
+                               
+                                  <br>
+                                  <br>
+                                  {{ prediction_text }}
+                               
                                 </div>
                                 <div class="card-footer ">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
+                                        <i class="fa fa-circle text-info"></i> 
+                                        <i class="fa fa-circle text-danger"></i> 
                                     </div>
                                     <hr>
                                     <div class="stats">
@@ -249,132 +270,30 @@
                         <div class="col-md-6">
                             <div class="card  card-tasks">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Tasks</h4>
-                                    <p class="card-category">Backend development</p>
+                                    <h4 class="card-title">FORECAST FOR PCs PENETRATION</h4>
+                                    <p class="card-category">Please introduce the new value you'd like to evaluate</p>
                                 </div>
                                 <div class="card-body ">
-                                    <div class="table-full-width">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="">
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                                    </td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" checked>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Create 4 Invisible User Experiences you Never Knew About</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="">
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Read "Following makes Medium better"</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="" disabled>
-                                                                <span class="form-check-sign"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td>Unfollow 5 enemies from twitter</td>
-                                                    <td class="td-actions text-right">
-                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                    <div id="chartActivity" class="ct-chart"></div>
+                                    <h1>Forecast Penetration of PCs</h1>
+                                    <br>
+                                    <br>
+                                    <!-- Main Input For Receiving Query to our ML -->
+                                   <form action="{{ url_for('predict')}}"method="post">
+                                    <input id= "Etiquetas" type="text" name="Streaming" placeholder="% Households with Streaming Services" required="required" />
+                                    <input id= "Etiquetas" type="text" name="MobileTel" placeholder="% Households with mobile telephone" required="required" />
+                                    <input id= "Etiquetas" type="text" name="PersonalCredit" placeholder="% Households with personal credit" required="required" />
+                                    <input id= "Etiquetas" type="text" name="PayTV" placeholder="% Households with pay TV" required="required" />
+                                    <input id= "Etiquetas" type="text" name="TEL" placeholder="% Households with fixed telephone" required="required" />
+                                    <input id= "Etiquetas" type="text" name="MB" placeholder="Mobile banking contracts by person" required="required" />
+                                    <br>
+                                    <button class= "but" type="submit" class="btn btn-primary btn-block btn-large">Predict Effects</button>
+                                   </form>
+                               
+                                  <br>
+                                  <br>
+                                  {{ prediction_text }}
+                                 </div>
                                 <div class="card-footer ">
                                     <hr>
                                     <div class="stats">
