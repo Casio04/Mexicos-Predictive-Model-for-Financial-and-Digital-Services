@@ -41,3 +41,37 @@ select {
   width: 160px;
   word-wrap: break-word
 }
+
+#table{
+  font-family: Helvetica ;
+  text-align: -webkit-center;
+}
+
+
+
+th {
+  /* border: 0.5px dashed #000000; */
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:3px;
+  padding-bottom: 3px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #eaeaea; 
+}
+td {
+  /* border: 0.5px dashed #000000; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-top: 1px solid rgb(75, 75, 75);
+  padding: 3px
+}
+
+.heatmap{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.smaller{
+  font-size: 15px ;
+}

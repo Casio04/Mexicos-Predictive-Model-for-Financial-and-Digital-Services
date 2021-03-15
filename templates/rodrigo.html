@@ -33,7 +33,24 @@
     <link href="../static/css/demo.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-  <link href="../static/css/style_index.css" rel="stylesheet">
+    <link href="../static/css/style_index.css" rel="stylesheet">
+
+   <!--  Leaflet JS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+   <!-- Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
@@ -49,7 +66,7 @@
                     </a>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <li>
                         <a class="nav-link" href="sam.html">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Sam</p>
@@ -67,7 +84,7 @@
                             <p>Carlos</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="./rodrigo.html">
                             <i class="nc-icon nc-paper-2"></i>
                             <p>Rodrigo</p>
@@ -113,59 +130,6 @@
                         <span class="navbar-toggler-bar burger-lines"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <!-- <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
-                                    <span class="d-lg-none">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-planet"></i>
-                                    <span class="notification">5</span>
-                                    <span class="d-lg-none">Notification</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Notification 1</a>
-                                    <a class="dropdown-item" href="#">Notification 2</a>
-                                    <a class="dropdown-item" href="#">Notification 3</a>
-                                    <a class="dropdown-item" href="#">Notification 4</a>
-                                    <a class="dropdown-item" href="#">Another notification</a>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                    <span class="d-lg-block">&nbsp;Search</span>
-                                </a>
-                            </li>
-                        </ul> -->
-                        <!-- <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
-                                    <span class="no-icon">Account</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="no-icon">Dropdown</span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
-                                    <span class="no-icon">Log out</span>
-                                </a>
-                            </li>
-                        </ul> -->
                     </div>
                 </div>
             </nav>
@@ -175,90 +139,82 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div style="font-size:x-large; text-align: center;" class="card-title">
-                                <span style="text-align: center;">MACHINE LEARNING INTERACTIVE</span>
+                                <span style="text-align: center;"><h3><u><b>Machine Learning Model</b></u></h3></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </div> <br>
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card ">
-                                <div class="card-header ">
-                                    <h4 class="card-title">SELECT A MUNICIPALITY</h4>
-                                    <p class="card-category">Let's work in your requierement</p>
-                                    <div class="well">
-                                        <select id="selDataset" onchange="optionChanged(this.value)"></select>
-                                      </div>
-                                </div>
-                                <div class="card-body ">
-                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i>
-                                        <i class="fa fa-circle text-danger"></i>
-                                        <i class="fa fa-circle text-warning"></i>
+                        <div class="col-md-5" style="text-align: justify;">
+                            <div class="box">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" style="text-align: center;">Description</h4>
                                     </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> 
+                                    <div class="card-body">
+                                        <p style="text-align: justify;">Having in mind the information and patterns we saw in the previous dashboards, 
+                                            the next step was training a model with all the information available and considering
+                                            the relationships we identified among every gathered variable in the digital and financial 
+                                            environment up to 2020. <br> 
+                                            The fundamental question that we answer with a machine learning model is: <br><b>Which is the
+                                            predicted effect of financial and digital variables based on changes in other variables? </b><br>
+                                            For instance,<i> which is the effect of an increase in computer consumption in a municipality 
+                                            over streaming subscriptions?</i>
+                                        </p>
+                                    </div>
+                                </div>                                               
+                                <div class="card ">
+                                    <div class="card-header ">
+                                        <h4 class="card-title" style="text-align: center;">Model Results</h4>
+                                    </div>
+                                    <div class="card-body ">
+                                        <p style="text-align: justify;">We tested our model for the 5 variables presented, obtaining the following results:</p>
+                                        <div class="table-responsive" id="table">
+                                            <table class="table"></table>
+                                        </div>
+                                        <hr>
+                                        <div class="stats">
+                                           <p stlye="text-align:left" class="smaller"> * The Mean Square Error (MSE) is the average squared difference between the estimated values and the actual value. This is a measure of the quality of our estimations. It means that values closer to zero are better.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card ">
-                                <div class="card-header ">
-                                    <h4 class="card-title">The Digital and Financial Inclusion Scenario 2020</h4>
-                                    <p class="card-category">The municipality you've select has the following performance</p>
-                                </div>
-                                <div class="card-body ">
-                                    <div id="chartHours" class="ct-chart"></div>
-                                </div>
-                                <div class="card-footer ">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> 
-                                        <i class="fa fa-circle text-danger"></i>
-                                        <i class="fa fa-circle text-warning"></i>
+                        <div class="col-md-7">
+                            <div class="box">
+                                <div class="card ">
+                                    <div class="card-header ">
+                                        <h4 class="card-title" style="text-align: center;">Heat Map</h4>
                                     </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-history"></i> 
+                                    <div class="card-body ">
+                                        <p style="text-align: justify;">Heatmap shows us the direct or indirect relationship of each variable with every other from the data.
+                                            In this case, the yellow square means a perfect 1 to 1 relationship, meaning that when X variable (e.g. PC) increases in 1% from its previous value, 
+                                            the other related variable (e.g. Internet) increases in the same proportion.
+                                            The machile learning model uses variables from the upper-right quadrant, which are variables from financial services compared to variables of digital services.
+                                        </p> <br>
+                                        <img src="static/img/heatmap.png" alt="heatmap" class="heatmap">
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4 class="card-title">FORECAST FOR CREDIT CARDS PENETRATION</h4>
-                                    <p class="card-category">Please introduce the new value you'd like to evaluate</p>
+                                    <h4 class="card-title">2017 Sales</h4>
+                                    <p class="card-category">All products including Taxes</p>
                                 </div>
                                 <div class="card-body ">
                                     <div id="chartActivity" class="ct-chart"></div>
-                                    <h1>Forecast Penetration of Credit Cards</h1>
-                                    <!-- Main Input For Receiving Query to our ML -->
-                                   <form action="{{ url_for('predict')}}"method="post">
-                                    <input id= "Etiquetas" type="text" name="PC" placeholder="% Households with PC" required="required" />
-                                    <input id= "Etiquetas" type="text" name="Telefoný" placeholder="% Households with fixed telephone" required="required" />
-                                    <input id= "Etiquetas" type="text" name="PayTV" placeholder="% Households with pay TV" required="required" />
-                                    <input id= "Etiquetas" type="text" name="Personal Credits" placeholder="% Personal Credits" required="required" />
-                                    <input id= "Etiquetas" type="text" name="ATM" placeholder="ATM transactions by person" required="required" />
-                                    <input id= "Etiquetas" type="text" name="PTV" placeholder="Point of Sales Transactions by Person" required="required" />
-                                    <input id= "Etiquetas" type="text" name="MB" placeholder="Mobile Bank Contracts by Person" required="required" />
-                                    <br>
-                                    <button class= "but" type="submit" class="btn btn-primary btn-block btn-large">Predict Effects</button>
-                                   </form>
-                               
-                                  <br>
-                                  <br>
-                                  {{ prediction_text }}
-                               
                                 </div>
                                 <div class="card-footer ">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> 
-                                        <i class="fa fa-circle text-danger"></i> 
+                                        <i class="fa fa-circle text-info"></i> Tesla Model S
+                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
                                     </div>
                                     <hr>
                                     <div class="stats">
@@ -270,30 +226,132 @@
                         <div class="col-md-6">
                             <div class="card  card-tasks">
                                 <div class="card-header ">
-                                    <h4 class="card-title">FORECAST FOR PCs PENETRATION</h4>
-                                    <p class="card-category">Please introduce the new value you'd like to evaluate</p>
+                                    <h4 class="card-title">Tasks</h4>
+                                    <p class="card-category">Backend development</p>
                                 </div>
                                 <div class="card-body ">
-                                    <div id="chartActivity" class="ct-chart"></div>
-                                    <h1>Forecast Penetration of PCs</h1>
-                                    <br>
-                                    <br>
-                                    <!-- Main Input For Receiving Query to our ML -->
-                                   <form action="{{ url_for('predict')}}"method="post">
-                                    <input id= "Etiquetas" type="text" name="Streaming" placeholder="% Households with Streaming Services" required="required" />
-                                    <input id= "Etiquetas" type="text" name="MobileTel" placeholder="% Households with mobile telephone" required="required" />
-                                    <input id= "Etiquetas" type="text" name="PersonalCredit" placeholder="% Households with personal credit" required="required" />
-                                    <input id= "Etiquetas" type="text" name="PayTV" placeholder="% Households with pay TV" required="required" />
-                                    <input id= "Etiquetas" type="text" name="TEL" placeholder="% Households with fixed telephone" required="required" />
-                                    <input id= "Etiquetas" type="text" name="MB" placeholder="Mobile banking contracts by person" required="required" />
-                                    <br>
-                                    <button class= "but" type="submit" class="btn btn-primary btn-block btn-large">Predict Effects</button>
-                                   </form>
-                               
-                                  <br>
-                                  <br>
-                                  {{ prediction_text }}
-                                 </div>
+                                    <div class="table-full-width">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                    <td class="td-actions text-right">
+                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="" checked>
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                    <td class="td-actions text-right">
+                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="" checked>
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                                    </td>
+                                                    <td class="td-actions text-right">
+                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" checked>
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                                    <td class="td-actions text-right">
+                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>Read "Following makes Medium better"</td>
+                                                    <td class="td-actions text-right">
+                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="" disabled>
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>Unfollow 5 enemies from twitter</td>
+                                                    <td class="td-actions text-right">
+                                                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                                 <div class="card-footer ">
                                     <hr>
                                     <div class="stats">
@@ -335,7 +393,7 @@
                             <script>
                                 document.write(new Date().getFullYear())
                             </script>
-                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                            <a href="http://www.creative-tim.com">Creative Tim</a>
                         </p> -->
                     </nav>
                 </div>
@@ -450,16 +508,23 @@
 
     });
  Vendor JS Files -->
-<script src="../static/vendor/jquery/jquery.min.js"></script>
-<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../static/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="../static/vendor/php-email-form/validate.js"></script>
-<script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="../static/vendor/venobox/venobox.min.js"></script>
-<script src="../static/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="../static/vendor/aos/aos.js"></script>
+<script src="static/vendor/jquery/jquery.min.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="static/vendor/php-email-form/validate.js"></script>
+<script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/vendor/venobox/venobox.min.js"></script>
+<script src="static/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="static/vendor/aos/aos.js"></script>
 
 <!-- Template Main JS File -->
-<script src="../static/js/main.js"></script>
+<script src="static/js/main.js"></script>
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<script src="static/js/ML.js"></script>
+
+
 
 </html>
