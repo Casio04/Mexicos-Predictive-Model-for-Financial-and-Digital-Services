@@ -1,0 +1,320 @@
+<!-- 
+=========================================================
+ Light Bootstrap Dashboard - v2.0.1
+=========================================================
+
+ Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE)
+
+ Coded by Creative Tim
+
+=========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Financial inclusion</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../static/css/demo.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="../static/css/style_index.css" rel="stylesheet">
+
+   <!--  Leaflet JS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+   <!-- Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <div class="wrapper">
+        <div class="sidebar" data-image="../static/img/sidebar-4.jpg">
+            
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="index.html" class="simple-text">
+                        <img src="../static/img/logo64.png" alt="" class="img-fluid">ETA TEAM</a>
+                        <div>Universal access to financial services is within reach thanks to new technologies. </div>
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="background.html">
+                            <i class="nc-icon nc-chart-bar-32"></i>
+                            <p>Background</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./eduardo.html">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>Eduardo</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./state.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>State Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./mLearning.html">
+                            <i class="nc-icon nc-bulb-63"></i>
+                            <p>Machine Learning</p>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a class="nav-link" href="./icons.html">
+                            <i class="nc-icon nc-atom"></i>
+                            <p>Icons</p>
+                        </a>
+                    </li> -->
+                    <!-- <li>
+                        <a class="nav-link" href="./maps.html">
+                            <i class="nc-icon nc-pin-3"></i>
+                            <p>MAPS</p>
+                        </a>
+                    </li> -->
+                    <!-- <li>
+                        <a class="nav-link" href="./notifications.html">
+                            <i class="nc-icon nc-bell-55"></i>
+                            <p>Notifications</p>
+                        </a>
+                    </li> -->
+                    <li class="nav-item active active-pro">
+                        <a class="nav-link active" href="./about.html">
+                            <i class="nc-icon nc-alien-33"></i>
+                            <p>ABOUT</p>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <span></span> 
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="font-size:x-large; text-align: center;" class="card-title">
+                                <span style="text-align: center;"><h3><u><b>Machine Learning Model</b></u></h3></span>
+                                </div>
+                            </div>
+                        </div>
+                </div> <br>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5" style="text-align: justify;">
+                            <div class="box">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" style="text-align: center;">Description</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p style="text-align: justify;">Having in mind the information and patterns we saw in the previous dashboards, 
+                                            the next step was training a model with all the information available and considering
+                                            the relationships we identified among every gathered variable in the digital and financial 
+                                            environment up to 2020. <br> 
+                                            The fundamental question that we answer with a machine learning model is: <br><b>Which is the
+                                            predicted effect of financial and digital variables based on changes in other variables? </b><br>
+                                            For instance,<i> which is the effect of an increase in computer consumption in a municipality 
+                                            over streaming subscriptions?</i>
+                                        </p>
+                                    </div>
+                                </div>                                               
+                                <div class="card ">
+                                    <div class="card-header ">
+                                        <h4 class="card-title" style="text-align: center;">Model Results</h4>
+                                    </div>
+                                    <div class="card-body ">
+                                        <p style="text-align: justify;">We tested our model for the 5 variables presented, obtaining the following results:</p>
+                                        <div class="table-responsive" id="table">
+                                            <table class="table"></table>
+                                        </div>
+                                        <hr>
+                                        <div class="stats">
+                                           <p stlye="text-align:left" class="smaller"> * The Mean Square Error (MSE) is the average squared difference between the estimated values and the actual value. This is a measure of the quality of our estimations. It means that values closer to zero are better.
+                                               <br> ** The coefficient of detemination (R<sup>2</sup>) tells how good is the model to explain the changes in the variable tested. The strength of the relationship between your model and the dependent variable goes from 0 to 1, where 1 is a perfect fit. In marketing research, R<sup>2</sup> values of 0.75, 0.50, 0.25 are considered as substantial, moderate or weak.
+                                               <a href="https://www.researchgate.net/post/what_is_the_acceptable_r-squared_value#:~:text=While%20for%20exploratory%20research%2C%20using,substantial%2C%20moderate%2C%20or%20weak" target="_blank"> Source</a>
+                                           </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="box">
+                                <div class="card ">
+                                    <div class="card-header ">
+                                        <h4 class="card-title" style="text-align: center;">Heat Map</h4>
+                                    </div>
+                                    <div class="card-body ">
+                                        <p style="text-align: justify;">Heatmap shows us the direct or indirect relationship of each variable with every other from the data.
+                                            In this case, the yellow square means a perfect 1 to 1 relationship, meaning that when X variable (e.g. PC) increases in 1% from its previous value, 
+                                            the other related variable (e.g. Internet) increases in the same proportion.
+                                            The machile learning model uses variables from the upper-right quadrant, which are variables from financial services compared to variables of digital services.
+                                        </p> <br>
+                                        <img src="static/img/heatmap.png" alt="heatmap" class="heatmap">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="box">
+                                    <div class="card ">
+                                        <div class="card-header ">
+                                            <h4 class="card-title" style="text-align: center;">Forecasting new opportunities</h4>
+                                        </div>
+                                        <div class="card-body ">
+                                            <p style="font-size: 16px; text-align: justify;">Do you want to know how much can you be benefited from certain services? <br>
+                                            With this tool you can explore our 5 models and increase the penetration (in percentage) of one or more variables, so you can look how
+                                            much will the service chosen be benefited (or not) from those changes. <br>
+                                            After selecting an option, you will type custom values to interact with our models to measure what would it happen with 
+                                            the target variable (credit or debit cards, streaming services, PC consumption, and mobile banking contracts). A range of 0-10%
+                                            is available, considering 10% as a very optimistic increase for any explanatory variable.
+                                            </p>
+                                            <h5 style="text-align: center;">Please choose a model:</h5>
+                                            <select name="" id="modelSelector" onchange="selector(this.value)" ></select> <br><br>
+                                            <label for="v1" id="v1">Variable 1</label> <br>
+                                            <input type="number" id="var1" name="v1" class="myInput" onchange="handleChange(this)"><br>
+                                            <label for="v2" id="v2">Variable 2</label> <br>
+                                            <input type="number" id="var2" name="v2" class="myInput" onchange="handleChange(this)"><br>
+                                            <label for="v3" id="v3">Variable 3</label> <br>
+                                            <input type="number" id="var3" name="v3" class="myInput" onchange="handleChange(this)"><br>
+                                            <label for="v4" id="v4">Variable 4</label> <br>
+                                            <input type="number" id="var4" name="v4" class="myInput" onchange="handleChange(this)"><br>
+                                            <label for="v5" id="v5">Variable 5</label> <br>
+                                            <input type="number" id="var5" name="v5" class="myInput" onchange="handleChange(this)"><br>
+                                            <label for="v6" id="v6">Variable 6</label> <br>
+                                            <input type="number" id="var6" name="v6" class="myInput" onchange="handleChange(this)"><br>
+                                            <label for="v7" id="v7">Variable 7</label> <br>
+                                            <input type="number" id="var7" name="v7" class="myInput" onchange="handleChange(this)"><br><br><br>
+                                            <input type="submit" value="Calculate" id ="submit" onclick="runModel()">
+                                            <input type="submit" value="Clear All" id="clear" onclick = "erasedata()">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="box">
+                                    <div class="card  card-tasks">
+                                        <div class="card-header ">
+                                            <h4 class="card-title" style = "text-align: center;">Model Result</h4>
+                                        </div>
+                                        <div class="card-body ">
+                                            <div id="result"><p>Please input some data to calculate the result</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+ 
+</body>
+<!-- Template Main JS File -->
+<script src="static/js/main.js"></script>
+<!--   Core JS Files   -->
+
+<script src="static/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="static/js/core/popper.min.js" type="text/javascript"></script>
+<script src="static/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="static/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+
+<!--  Notifications Plugin    -->
+<script src="static/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="static/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+
+<script src="static/js/demo.js"></script>
+<!-- <script type="text/javascript">
+    $(document).ready(function() {
+        // Javascript method's body can be found in static/js/demos.js
+        // demo.initDashboardPageCharts();
+
+        // demo.showNotification();
+
+    });
+ Vendor JS Files -->
+<script src="static/vendor/jquery/jquery.min.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="static/vendor/php-email-form/validate.js"></script>
+<script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/vendor/venobox/venobox.min.js"></script>
+<script src="static/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="static/vendor/aos/aos.js"></script>
+
+<!-- Template Main JS File -->
+<script src="static/js/main.js"></script>
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<script src="static/js/lists.js"></script>
+<script src="static/js/ML.js"></script>
+
+
+
+
+</html>

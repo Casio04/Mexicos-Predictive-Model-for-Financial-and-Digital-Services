@@ -74,4 +74,45 @@ td {
 
 .smaller{
   font-size: 15px ;
+  text-align: justify;
+}
+
+.myInput{
+  background: rgb(255, 255, 255) !important;
+}
+
+.labelhidden{
+  color: white !important;
+}
+
+.inputhidden{
+  border: 1px solid white !important
+}
+
+#submit{
+  background: #d7e2fff8  !important;
+  font-weight: bold;
+}
+
+#clear{
+  background: #fffcdcf8;
+  font-weight: bold;
+}
+
+select {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input{
+  text-align: center;
+}
+
+.card-body{
+  text-align: center;
+}
+
+h1,h2,h3,h4,h5{
+  text-align: center;
 }

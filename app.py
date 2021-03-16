@@ -16,9 +16,9 @@ def index():
 def index_2():
     return render_template("index.html")
 
-@app.route("/carlos.html")
+@app.route("/state.html")
 def mun_view():
-    return render_template("carlos.html")
+    return render_template("state.html")
 
 @app.route("/background.html")
 def index3():
@@ -27,39 +27,42 @@ def index3():
 @app.route("/api_states")
 def states():
    
-    conn = 'mongodb://localhost:27017/'
+    # conn = 'mongodb://localhost:27017/'
+    conn = "mongodb+srv://BetaTeam:beta@projectcluster.xoh37.mongodb.net/inclusion_financiera?retryWrites=true&w=majority"
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera
     estados = db.estados.find()
-    # print(estados)
+    
     states_list = []
     for estado in estados:
         states_list.append(estado)
-    # json_sates = json.dumps(list([i[0] for i in states_list]))
-    # client.close()
+        
+    client.close()
     return json.dumps(json.loads(json_util.dumps(states_list)))
 
 @app.route("/api_mun")
 def municipalities():
    
-    conn = 'mongodb://localhost:27017/'
+    # conn = 'mongodb://localhost:27017/'
+    conn = "mongodb+srv://BetaTeam:beta@projectcluster.xoh37.mongodb.net/inclusion_financiera?retryWrites=true&w=majority"
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera
     municipios = db.municipios.find()
-    # print(estados)
+    
     mun_list = []
     for mun in municipios:
         mun_list.append(mun)
-    # json_sates = json.dumps(list([i[0] for i in states_list]))
-    # client.close()
+    
+    client.close()
     return json.dumps(json.loads(json_util.dumps(mun_list)))
 
 @app.route("/api_municipios/<state>")
 def coordinates(state):
-    conn = 'mongodb://localhost:27017/'
+    # conn = 'mongodb://localhost:27017/'
+    conn = "mongodb+srv://BetaTeam:beta@projectcluster.xoh37.mongodb.net/inclusion_financiera?retryWrites=true&w=majority"
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera
-    # db = client.inclusion_digital
+    
     municipios = db.municipios_coords.find({"features.properties.NOMBRE_ENTIDAD": state},{'_id': False})
     mun_list = []
     for mun in municipios:
@@ -67,12 +70,11 @@ def coordinates(state):
     
     client.close()
 
-    # json_result = json.dumps(list([i[0] for i in mun_list]))
     return json.dumps(mun_list)
 
-@app.route("/rodrigo.html")
+@app.route("/mLearning.html")
 def machine_learning():
-    return render_template("rodrigo.html")
+    return render_template("mLearning.html")
 
 @app.route("/creditcard_<v1>_<v2>_<v3>_<v4>_<v5>_<v6>_<v7>")
 def credit_card(v1,v2,v3,v4,v5,v6,v7):
@@ -84,7 +86,7 @@ def credit_card(v1,v2,v3,v4,v5,v6,v7):
     }
     return json.dumps(credit_dict)
 
-@app.route("/debitcard__<v1>_<v2>_<v3>_<v4>_<v5>_<v6>_<v7>")
+@app.route("/debitcard_<v1>_<v2>_<v3>_<v4>_<v5>_<v6>_<v7>")
 def debit_card(v1,v2,v3,v4,v5,v6,v7):
     
     modelload = pickle.load(open('static/ML models/model_debit_cards.pkl','rb'))
