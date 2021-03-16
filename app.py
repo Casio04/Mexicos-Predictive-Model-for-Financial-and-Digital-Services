@@ -16,10 +16,6 @@ def index():
 def index_2():
     return render_template("index.html")
 
-@app.route("/state.html")
-def mun_view():
-    return render_template("state.html")
-
 @app.route("/background.html")
 def index3():
     return render_template("background.html")
@@ -28,9 +24,17 @@ def index3():
 def tableau():
     return render_template("eduardo.html")
 
+@app.route("/state.html")
+def mun_view():
+    return render_template("state.html")
+
+@app.route("/mLearning.html")
+def machine_learning():
+    return render_template("mLearning.html")
+
 @app.route("/api_states")
 def states():
-   
+
     # conn = 'mongodb://localhost:27017/'
     conn = "mongodb+srv://BetaTeam:beta@projectcluster.xoh37.mongodb.net/inclusion_financiera?retryWrites=true&w=majority"
     client = pymongo.MongoClient(conn)
@@ -76,9 +80,22 @@ def coordinates(state):
 
     return json.dumps(mun_list)
 
-@app.route("/mLearning.html")
-def machine_learning():
-    return render_template("mLearning.html")
+@app.route('/api_h')
+def get_h():
+    # conn = 'mongodb://localhost:27017/'
+    conn = "mongodb+srv://BetaTeam:beta@projectcluster.xoh37.mongodb.net/inclusion_financiera?retryWrites=true&w=majority"
+    client = pymongo.MongoClient(conn)
+    db = client.inclusion_financiera
+    # Store the entire team collection in a list
+    periodos = db.historical.find()
+
+    per_list = []
+    for per in periodos:
+        per_list.append(per)
+
+    client.close()
+    # # Return the template with the teams list passed in
+    return json.dumps(json.loads(json_util.dumps(per_list)))
 
 @app.route("/creditcard_<v1>_<v2>_<v3>_<v4>_<v5>_<v6>_<v7>")
 def credit_card(v1,v2,v3,v4,v5,v6,v7):
@@ -131,20 +148,7 @@ def streaming(v1,v2,v3,v4,v5,v6):
     return json.dumps(computer)
 
 # Set route
-@app.route('/api_h')
-def get_h():
-    conn = 'mongodb://localhost:27017/'
-    client = pymongo.MongoClient(conn)
-    db = client.inclusion_financiera
-    # Store the entire team collection in a list
-    periodos = db.historical.find()
 
-    per_list = []
-    for per in periodos:
-        per_list.append(per)
-
-    # # Return the template with the teams list passed in
-    return json.dumps(json.loads(json_util.dumps(per_list)))
 
 
 if __name__=="__main__":
