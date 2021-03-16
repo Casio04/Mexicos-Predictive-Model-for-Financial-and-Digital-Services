@@ -24,6 +24,10 @@ def mun_view():
 def index3():
     return render_template("background.html")
 
+@app.route("/eduardo.html")
+def tableau():
+    return render_template("eduardo.html")
+
 @app.route("/api_states")
 def states():
    
