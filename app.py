@@ -20,6 +20,10 @@ def index_2():
 def mun_view():
     return render_template("carlos.html")
 
+@app.route("/background.html")
+def index3():
+    return render_template("background.html")
+
 @app.route("/api_states")
 def states():
    
@@ -119,6 +123,22 @@ def streaming(v1,v2,v3,v4,v5,v6):
         "Predicted":predicted[0][0],
     }
     return json.dumps(computer)
+
+# Set route
+@app.route('/api_h')
+def get_h():
+    conn = 'mongodb://localhost:27017/'
+    client = pymongo.MongoClient(conn)
+    db = client.inclusion_financiera
+    # Store the entire team collection in a list
+    periodos = db.historical.find()
+
+    per_list = []
+    for per in periodos:
+        per_list.append(per)
+
+    # # Return the template with the teams list passed in
+    return json.dumps(json.loads(json_util.dumps(per_list)))
 
 
 if __name__=="__main__":
