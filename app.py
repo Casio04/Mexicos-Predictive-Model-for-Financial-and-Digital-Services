@@ -9,8 +9,8 @@ import numpy as np
 app = Flask(__name__)
 
 # Define local or cloud connection
-conn = 'mongodb://localhost:27017/'
-# conn = "mongodb+srv://BetaTeam:beta@projectcluster.xoh37.mongodb.net/inclusion_financiera?retryWrites=true&w=majority"
+# conn = 'mongodb://localhost:27017/'
+conn = "mongodb+srv://BetaTeam:beta@projectcluster.xoh37.mongodb.net/inclusion_financiera?retryWrites=true&w=majority"
 
 @app.route("/")
 def index():
