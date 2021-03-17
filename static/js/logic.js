@@ -6,7 +6,7 @@ function init(){
         let states_list =  [...new Set(data.map(d => d.NOMBRE_ENTIDAD))]
         // Create empty array
         let states =[]
-        console.log(data)
+        
         // Push every state from the data
         data.forEach(function(d){
             states.push(d.NOMBRE_ENTIDAD)

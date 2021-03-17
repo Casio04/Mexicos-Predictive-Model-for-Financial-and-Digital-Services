@@ -45,10 +45,12 @@ let description_list = {"1": "<p>Digital inclusion tells us how likely is for a 
 
 let models = ['Credit Card', 'Debit Card','Mobile Banking', 'PC','Streaming']
 let pair_models = {'Credit Card': 'creditcard', 'Debit Card':'debitcard', 'Mobile Banking':'mobilebanking', 'PC':'PC', 'Streaming':'streaming'}
-let creditcard = {"v1":"PC", "v2":"Fixed Telephone", "v3": "Paid TV", "v4": "ATM (dem)", "v5":"Personal Credit (dem)", "v6": "Points of Sale (dem)", "v7": "Mobile Banking (dem)"}
-let debitcard = {"v1":"PC", "v2":"Fixed Telephone", "v3": "Paid TV", "v4": "ATM (dem)", "v5":"Personal Credit (dem)", "v6": "Points of Sale (dem)", "v7": "Mobile Banking (dem)"}
-let mobilebanking = {"v1":"PC", "v2":"Paid TV", "v3": "Points of Sale (dem)", "v4": "Cellphone", "v5":"Traditional Accounts"}
-let PC = {"v1":"Streaming", "v2":"Cellphone", "v3": "Personal Credit", "v4": "Paid TV", "v5":"Fixed Telephone", "v6": "Mobile Banking"}
-let streaming = {"v1":"PC", "v2":"Television","v3":"Paid TV", "v4": "Points of Sale (dem)", "v5": "ATM (dem)", "v6":"Fixed Telephone"}
-
+let creditcard = {"v1":"PC", "v2":"Fixed Telephone", "v3": "Paid TV", "v4": "ATM Transactions (dem)", "v5":"Personal Credit (dem)", "v6": "Points of Sale (dem)", "v7": "Mobile Banking (dem)"}
+let debitcard = {"v1":"PC", "v2":"Fixed Telephone", "v3": "Paid TV", "v4": "ATM Transactions (dem)", "v5":"Personal Credit (dem)", "v6": "Points of Sale (dem)", "v7": "Mobile Banking (dem)"}
+let mobilebanking = {"v1":"PC", "v2":"Paid TV", "v3": "Points of Sale (dem)", "v4": "Cellphone", "v5":"Traditional Accounts (dem)"}
+let PC = {"v1":"Streaming", "v2":"Cellphone", "v3": "Personal Credit (dem)", "v4": "Paid TV", "v5":"Fixed Telephone", "v6": "Mobile Banking"}
+let streaming = {"v1":"PC", "v2":"Television","v3":"Paid TV", "v4": "Points of Sale (dem)", "v5": "ATM Transactions (dem)", "v6":"Fixed Telephone"}
+let ML_list = {"PC":"VPH_PC", "Fixed Telephone":"VPH_TELEF", "Paid TV": "VPH_STVP","ATM Transactions (dem)":  "Trans_ATM_dem", "Personal Credit (dem)":"Personal_dem", 
+"Points of Sale (dem)":'Trans_TPV_dem', "Mobile Banking (dem)":'Contratos_BM_dem','Cellphone':'VPH_PC','Traditional Accounts (dem)':
+'Cuentas_Trad_dem', 'Streaming':'VPH_SPMVPI', 'Personal Credit (dem)': 'Personal_dem', 'Television':'VPH_TV',}
 const API_KEY = "pk.eyJ1Ijoicm9kZ3Vhcm5lcm9zIiwiYSI6ImNrazdrcDJkaTAyZjQybm5zdmlyNWl3bDAifQ.VUdkQ9iFNmXi7MHIoxqYeA"

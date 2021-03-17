@@ -1,6 +1,48 @@
 // Variable for responsive plotly charts
 var config = {responsive: true}
 
+function init(){
+    // Reading data from API
+    d3.json("../api_mun").then(function(data){
+        let states_list =  [...new Set(data.map(d => d.NOMBRE_ENTIDAD))]
+        // Create empty array
+        let states =[]
+        
+        // Push every state from the data
+        data.forEach(function(d){
+            states.push(d.NOMBRE_ENTIDAD)
+        })
+        // Insert states into dropdown
+        
+        let state_selection = d3.select("#stateSelector")
+        .selectAll("option")
+        state_selection.data(states_list)
+        .enter()
+        .append("option")
+        .merge(state_selection)
+        .attr("value", d =>d)
+        .text(d=>d)
+        state_selection.exit().remove()
+
+		let selection = d3.select("#modelSelector")
+		.selectAll("option")
+		selection.data(models)
+		.enter()
+		.append("option")
+		.merge(selection)
+		.attr("value", d =>d)
+		.text(d=>d)
+		selection.exit().remove()
+
+		let value = document.getElementById("modelSelector").value
+		let state = document.getElementById("stateSelector").value
+		selector(value)
+		munUpdate(state)
+
+    })
+}
+
+
 // Creating arrays with the data needed for the machine learning demonstration
 let data = [
     {"Variable tested": "Credit Card", "Predicted":0.3396, "Actual":0.3741, "% Variation": -0.09, "MSE*": 0.01, "R<sup>2</sup>**":0.80},
@@ -53,21 +95,6 @@ var values = [
 	// render the table(s)
 	tabulate(data, ['Variable tested', 'Predicted','Actual','% Variation', 'MSE*',"R<sup>2</sup>**"]); // 2 column table
 
-// Populate list for machine learning options
-function initial_list(){
-	let selection = d3.select("#modelSelector")
-	.selectAll("option")
-	selection.data(models)
-	.enter()
-	.append("option")
-	.merge(selection)
-	.attr("value", d =>d)
-	.text(d=>d)
-	selection.exit().remove()
-
-	let value = document.getElementById("modelSelector").value
-	selector(value)
-}
 
 // Modify the variables used for each model
 function selector(model){
@@ -106,7 +133,53 @@ function handleChange(input) {
   }
 
 // running function to calculate prediction from model
+
+
+function munUpdate(state){
+	d3.json("/api_ML_" +state).then(function(data){
+		let mun = data[0].NOMBRE_MUNICIPIO
+		let selection = d3.select("#testing")
+		.selectAll("option")
+		selection.data(data)
+		.enter()
+		.append("option")
+		.merge(selection)
+		.attr("value", d=>d.NOMBRE_MUNICIPIO)
+		.text(d=>d.NOMBRE_MUNICIPIO)
+		selection.exit().remove()
+		model_values(mun)
+	})	
+	
+}
+
 function runModel(){
+	
+	let state = document.getElementById("stateSelector").value
+	let mun = document.getElementById("testing").value
+	
+	let original_list = []
+	let input_list = []
+	d3.json("/api_ML_" + state).then(function(data){
+		
+		let mun_data = data.filter(d=>d.NOMBRE_MUNICIPIO === mun)[0]
+		console.log(mun_data)
+		
+		for(i = 1; i<8; i++){
+			let classvalue = document.getElementById("var"+i)
+			let test = classvalue.classList.contains("inputhidden")
+			if (test === false){
+				
+				let var_name = document.getElementById("v"+i).innerHTML
+				let var_db = ML_list[var_name]
+				input_list.push(document.getElementById("var"+i).value)
+				original_list.push(mun_data[var_db])
+				
+			}
+		}
+		console.log(original_list)				
+		console.log(input_list)
+	})
+
 	let model = document.getElementById("modelSelector").value
 	let result
 	let sum = 0
@@ -190,6 +263,29 @@ function runModel(){
 	}
 }
 
+function model_values(mun){
+	let state = document.getElementById("stateSelector").value
+	
+	d3.json("/api_ML_" + state).then(function(data){
+		
+		let mun_data = data.filter(d=>d.NOMBRE_MUNICIPIO === mun)[0]
+		
+		
+		for(i = 1; i<8; i++){
+			let classvalue = document.getElementById("var"+i)
+			let test = classvalue.classList.contains("inputhidden")
+			if (test === false){
+				
+				let var_name = document.getElementById("v"+i).innerHTML
+				let var_db = ML_list[var_name]
+				
+				document.getElementById("var"+i).value = mun_data[var_db]				
+			}
+		}
+	})
+	
+}
+
 function erasedata(){
 	for(i=1; i< 8; i++){
 		document.getElementById("var"+i).value = ''
@@ -200,4 +296,4 @@ function showresult(result){
 	d3.select("#result").text(result)
 }
 
-initial_list()
+init()

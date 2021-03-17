@@ -128,8 +128,8 @@
                 </div> <br>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-5" style="text-align: justify;">
-                            <div class="box">
+                        <div class="col-lg-5 col-md-12" style="text-align: justify;">
+                            <!-- <div class="box"> -->
                                 <div class="card">
                                     <div class="card-header">
                                         <h4 class="card-title" style="text-align: center;">Description</h4>
@@ -164,13 +164,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
-                        <div class="col-md-7">
-                            <div class="box">
+                        <div class="col-lg-7 col-md-12">
+                            <!-- <div class="box"> -->
                                 <div class="card ">
                                     <div class="card-header ">
-                                        <h4 class="card-title" style="text-align: center;">Heat Map</h4>
+                                        <h4 class="card-title" style="text-align: center;">Heat Map - Digital vs Financial Services in Mexico 2020</h4>
                                     </div>
                                     <div class="card-body ">
                                         <p style="text-align: justify;">Heatmap shows us the direct or indirect relationship of each variable with every other from the data.
@@ -178,55 +178,65 @@
                                             the other related variable (e.g. Internet) increases in the same proportion.
                                             The machile learning model uses variables from the upper-right quadrant, which are variables from financial services compared to variables of digital services.
                                         </p> <br>
-                                        <img src="static/img/heatmap.png" alt="heatmap" class="heatmap">
+                                        <div id="heatmap"></div>
                                     </div>
                                     
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-5">
-                                <div class="box">
+                            <div class="col-lg-5 col-md-12">
+                                <!-- <div class="box"> -->
                                     <div class="card ">
                                         <div class="card-header ">
                                             <h4 class="card-title" style="text-align: center;">Forecasting new opportunities</h4>
                                         </div>
                                         <div class="card-body ">
-                                            <p style="font-size: 16px; text-align: justify;">Do you want to know how much can you be benefited from certain services? <br>
+                                            <p style="font-size: 16px; text-align: justify;">Do you want to know how much can you be benefited from certain services on a specific municipality? <br>
                                             With this tool you can explore our 5 models and increase the penetration (in percentage) of one or more variables, so you can look how
-                                            much will the service chosen be benefited (or not) from those changes. <br>
-                                            After selecting an option, you will type custom values to interact with our models to measure what would it happen with 
-                                            the target variable (credit or debit cards, streaming services, PC consumption, and mobile banking contracts). A range of 0-10%
-                                            is available, considering 10% as a very optimistic increase for any explanatory variable.
+                                            much will the service chosen be benefited (or not) from those changes on the selected location. <br>
+                                            After selecting a model, you will see the actual percentage values of penetration for each explanatory variable. This means
+                                            that the model will only show relevant variables . <br> From that point, you can increase, decrease
+                                            or keep the same value, up to 100% or down to 0%. 
+                                            Finally, you can see the results on the next section "Model Result"
                                             </p>
-                                            <h5 style="text-align: center;">Please choose a model:</h5>
-                                            <select name="" id="modelSelector" onchange="selector(this.value)" ></select> <br><br>
-                                            <label for="v1" id="v1">Variable 1</label> <br>
+                                            <p style="font-size:16px"><b>Please select the desired options:</b></p>
+                                            
+                                            
+                                                <label style="text-align: center;" for="m1">Model variable</label><br>
+                                                <select name="m1" id="modelSelector" onchange="selector(this.value)"></select><br>
+                                                <label style="text-align: center;" for="m2">State</label><br>
+                                                <select name="m2" id="stateSelector" onchange="munUpdate(this.value)"></select><br>
+                                                <label style="text-align: center;" for="m3">municipality</label><br>
+                                                <select name="m3" id="testing" onchange="model_values(this.value)"></select><hr>
+
+                                            <p style="font-size:16px"><b>Please input the percentages you want to increase or decrease any variable <br>(min: 0% | max: 100%)</b></p>
+                                            <label class="center" for="v1" id="v1"></label> 
                                             <input type="number" id="var1" name="v1" class="myInput" onchange="handleChange(this)"><br>
-                                            <label for="v2" id="v2">Variable 2</label> <br>
+                                            <label for="v2" id="v2"></label> 
                                             <input type="number" id="var2" name="v2" class="myInput" onchange="handleChange(this)"><br>
-                                            <label for="v3" id="v3">Variable 3</label> <br>
+                                            <label for="v3" id="v3"></label> 
                                             <input type="number" id="var3" name="v3" class="myInput" onchange="handleChange(this)"><br>
-                                            <label for="v4" id="v4">Variable 4</label> <br>
+                                            <label for="v4" id="v4"></label> 
                                             <input type="number" id="var4" name="v4" class="myInput" onchange="handleChange(this)"><br>
-                                            <label for="v5" id="v5">Variable 5</label> <br>
+                                            <label for="v5" id="v5"></label> 
                                             <input type="number" id="var5" name="v5" class="myInput" onchange="handleChange(this)"><br>
-                                            <label for="v6" id="v6">Variable 6</label> <br>
+                                            <label for="v6" id="v6"></label>
                                             <input type="number" id="var6" name="v6" class="myInput" onchange="handleChange(this)"><br>
-                                            <label for="v7" id="v7">Variable 7</label> <br>
+                                            <label for="v7" id="v7"></label>
                                             <input type="number" id="var7" name="v7" class="myInput" onchange="handleChange(this)"><br><br><br>
                                             <input type="submit" value="Calculate" id ="submit" onclick="runModel()">
                                             <input type="submit" value="Clear All" id="clear" onclick = "erasedata()">
                                         </div>
                                         
                                     </div>
-                                </div>
+                                <!-- </div> -->
                             </div>
-                            <div class="col-md-7">
-                                <div class="box">
+                            <div class="col-lg-7 col-md-12">
+                                <!-- <div class="box"> -->
                                     <div class="card  card-tasks">
                                         <div class="card-header ">
                                             <h4 class="card-title" style = "text-align: center;">Model Result</h4>
@@ -235,7 +245,7 @@
                                             <div id="result"><p>Please input some data to calculate the result</p></div>
                                         </div>
                                     </div>
-                                </div>
+                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
@@ -295,6 +305,8 @@
 
 <script src="static/js/lists.js"></script>
 <script src="static/js/ML.js"></script>
+<script src="static/js/data.js"></script>
+<script src="static/js/plots.js"></script>
 
 
 

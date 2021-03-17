@@ -37,17 +37,10 @@ html, body {
     font-size: 20px
 }
 
-select {
-  width: 160px;
-  word-wrap: break-word
-}
-
 #table{
   font-family: Helvetica ;
   text-align: -webkit-center;
 }
-
-
 
 th {
   /* border: 0.5px dashed #000000; */
@@ -65,9 +58,9 @@ td {
   padding: 3px
 }
 
-.heatmap{
+#heatmap{
   max-width: 100%;
-  max-height: 100%;
+  height: 756px;
   object-fit: cover;
   border-radius: 25px;
 }
@@ -75,11 +68,7 @@ td {
 .smaller{
   font-size: 15px ;
   text-align: justify;
-}
-
-.myInput{
-  background: rgb(255, 255, 255) !important;
-}
+} 
 
 .labelhidden{
   color: white !important;
@@ -100,9 +89,11 @@ td {
 }
 
 select {
-  display: block;
+  display: inline-block;
   margin: 0 auto;
   text-align: center;
+  width: 260px;
+  text-indent: 5px;
 }
 
 input{
@@ -115,4 +106,30 @@ input{
 
 h1,h2,h3,h4,h5{
   text-align: center;
+}
+
+label{
+  font-size: 14px !important;
+  padding-top: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+
+}
+
+.myInput {
+  width: 160px;
+  word-wrap: break-word;
+  background: rgb(255, 255, 255) !important;
+}
+
+form {
+  display: inline-block !important;
+}
+
+@media (max-width: 1150px)  {
+  .center {
+    text-align: center !important;
+  }
 }
