@@ -376,7 +376,7 @@ function showresult(result){
 			x: label_list,
 			y: original_values,
 			type: 'bar',
-			name: 'Current values',
+			name: 'Current value',
 			marker: {
 			  color: '#CECECE',
 			  opacity: 0.8,
@@ -399,7 +399,7 @@ function showresult(result){
 			x: label_list,
 			y: input_values,
 			type: 'bar',
-			name: 'Predicted values',
+			name: 'Predicted value',
 			marker: {
 			  color: ['#BD0707','#69b3a2','#69b3a2','#69b3a2','#69b3a2','#69b3a2','#69b3a2','#69b3a2'],
 			  opacity: 1
@@ -440,7 +440,7 @@ function showresult(result){
 		.html('<p style="text-align:center";> Considering the written values, you can see how the model was affected from its original situation. <br>The red line shows us the current (real) value, while the green bar represents the forecast ')
 		d3.select("#text2")
 		.html('<p>The ' + model_label + ' availability is currently on <b>' + current + '</b>, while the predicted value is now located at <b>' + parseFloat(result).toFixed(2) + '</b>.<br><h5><b><u> This would represent a change of '+ parseFloat(((parseFloat(result) / parseFloat(current)) -1)*100).toFixed(2) + '%</u></b></h5>') 
-		console.log(model_label)
+		
 		if(model_label == "Streaming"){
 			d3.select("#text3")
 		.html('<p><b style="text-align:center;">Final Advice: </b>If the percent change is above 25%, you should consider this is a good bussines opportunity.<br><b>Note: </b>For a better predictive result, you should consider variations in the explanatory variables based on your professional experience and any other source of information you consider relevant</p>')
