@@ -24,9 +24,9 @@ def index_2():
 def index3():
     return render_template("background.html")
 
-@app.route("/eduardo.html")
+@app.route("/national.html")
 def tableau():
-    return render_template("eduardo.html")
+    return render_template("national.html")
 
 @app.route("/state.html")
 def mun_view():

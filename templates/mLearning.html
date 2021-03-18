@@ -73,13 +73,13 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./eduardo.html">
-                            <i class="nc-icon nc-circle-09"></i>
-                            <p>Eduardo</p>
+                        <a class="nav-link" href="national.html">
+                            <i class="nc-icon nc-map-big"></i>
+                            <p>National Overview</p>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./state.html">
+                        <a class="nav-link" href="state.html">
                             <i class="nc-icon nc-notes"></i>
                             <p>State Analysis</p>
                         </a>
@@ -92,7 +92,7 @@
                     </li>
                     <li class="nav-item active active-pro">
                         <a class="nav-link active" href="./about.html">
-                            <i class="nc-icon nc-alien-33"></i>
+                            <i class="nc-icon nc-zoom-split"></i>
                             <p>ABOUT</p>
                         </a>
                     </li>
@@ -122,9 +122,9 @@
                         <div class="col-md-12">
                             <div style="font-size:x-large; text-align: center;" class="card-title">
                                 <span style="text-align: center;"><h3><u><b>Machine Learning Model</b></u></h3></span>
-                                </div>
                             </div>
                         </div>
+                    </div>
                 </div> <br>
                 <div class="container-fluid">
                     <div class="row">
@@ -132,14 +132,13 @@
                             <!-- <div class="box"> -->
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title" style="text-align: center;">Description</h4>
+                                        <h4 class="card-title" style="text-align: center;">What is Machine Learning?</h4>
                                     </div>
                                     <div class="card-body">
                                         <p style="text-align: justify;">Having in mind the information and patterns we saw in the previous dashboards, 
-                                            the next step was training a model with all the information available and considering
-                                            the relationships we identified among every gathered variable in the digital and financial 
-                                            environment up to 2020. <br> 
-                                            The fundamental question that we answer with a machine learning model is: <br><b>Which is the
+                                            the next step was to train a model with all the information available and considering
+                                            the relationships we identified among every digital and/or financial service <br> 
+                                            The fundamental question that we answer with this specific machine learning model is: <br><b>Which is the
                                             predicted effect of financial and digital variables based on changes in other variables? </b><br>
                                             For instance,<i> which is the effect of an increase in computer consumption in a municipality 
                                             over streaming subscriptions?</i>
@@ -148,7 +147,7 @@
                                 </div>                                               
                                 <div class="card ">
                                     <div class="card-header ">
-                                        <h4 class="card-title" style="text-align: center;">Model Results</h4>
+                                        <h4 class="card-title" style="text-align: center;">Model Efficiency</h4>
                                     </div>
                                     <div class="card-body ">
                                         <p style="text-align: justify;">We tested our model for the 5 variables presented, obtaining the following results:</p>
@@ -176,7 +175,7 @@
                                         <p style="text-align: justify;">Heatmap shows us the direct or indirect relationship of each variable with every other from the data.
                                             In this case, the yellow square means a perfect 1 to 1 relationship, meaning that when X variable (e.g. PC) increases in 1% from its previous value, 
                                             the other related variable (e.g. Internet) increases in the same proportion.
-                                            The machile learning model uses variables from the upper-right quadrant, which are variables from financial services compared to variables of digital services.
+                                            This can quickly tell us how related (or not) are two variables between them.
                                         </p> <br>
                                         <div id="heatmap"></div>
                                     </div>
@@ -190,19 +189,47 @@
                         <div class="row">
                             <div class="col-lg-5 col-md-12">
                                 <!-- <div class="box"> -->
-                                    <div class="card ">
-                                        <div class="card-header ">
-                                            <h4 class="card-title" style="text-align: center;">Forecasting new opportunities</h4>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title" style="text-align: center;">Is my idea going to work?</h4>
                                         </div>
-                                        <div class="card-body ">
-                                            <p style="font-size: 16px; text-align: justify;">Do you want to know how much can you be benefited from certain services on a specific municipality? <br>
-                                            With this tool you can explore our 5 models and increase the penetration (in percentage) of one or more variables, so you can look how
-                                            much will the service chosen be benefited (or not) from those changes on the selected location. <br>
-                                            After selecting a model, you will see the actual percentage values of penetration for each explanatory variable. This means
-                                            that the model will only show relevant variables . <br> From that point, you can increase, decrease
-                                            or keep the same value, up to 100% or down to 0%. 
-                                            Finally, you can see the results on the next section "Model Result"
-                                            </p>
+                                        <div class="card-body">
+                                            <p style="font-size: 16px; text-align: justify;">Finally! We have arrived to the most interesting part for you! <br>
+                                            Probably you already have in mind one or more services you could actually increase on certain area (and if not, don't worry!). Here you 
+                                            can test 5 different services and see which are the most important variables (other services) for them. <br>
+                                            <i> We're sorry if you are interested on a service that is not listed, it means the model couldn't find such a crucial relation with the data we have,
+                                            but of course we can help you further on another project. </i><br>
+                                            <div class="tooltip">For a more technical explanation on the process, hover here
+                                                <span class="tooltiptext">
+                                                    The process to make this predictive data analysis includes the following steps: <br> 
+                                                    •	ETL process <br>
+                                                    •	Exploratory data analysis <br>
+                                                    •	Preprocessing (feature extraction and normalization) <br>
+                                                    •	Dimensionality reduction <br>
+                                                    •	Fiting and traing the model (Multiple Linear Regression and Random Forest Regression) <br>
+                                                    •	Deploy Machine Learning Model 
+                                                </span>
+                                            </div> <br><br>
+                                            <p><b> So, how does it work? </b></p>
+                                            <ol>
+                                                <li>
+                                                    Pick a variable, a state and a municipality (or you can leave the defaults)
+                                                </li>
+                                                <li>
+                                                    Depending on the variable (model) chosen, you will see some services and numbers. The services are those variables that have a strong correlation with
+                                                    the main service, and the numbers show the current access for that service on that Municipality
+                                                </li>
+                                                <li>
+                                                    Modify those numbers to anything you want, considering that they should increase in order to affect positively to the main variable (Please look at the "DEM" and "non-DEM"
+                                                    variables information below to have a better understanding)
+                                                </li>
+                                                <li>
+                                                    Click on calculate and we'll explain everything!
+                                                </li>
+                                            </ol>
+                                             </p>
+                                            
+                                            
                                             <p style="font-size:16px"><b>Please select the desired options:</b></p>
                                             
                                             
@@ -213,7 +240,7 @@
                                                 <label style="text-align: center;" for="m3">municipality</label><br>
                                                 <select name="m3" id="testing" onchange="model_values(this.value)"></select><hr>
 
-                                            <p style="font-size:16px"><b>Please input the percentages you want to increase or decrease any variable <br>(min: 0% | max: 100%)</b></p>
+                                            <p style="font-size:16px"><b>Please input the values you want to increase or decrease any variable </b></p>
                                             <label class="center" for="v1" id="v1"></label> 
                                             <input type="number" id="var1" name="v1" class="myInput" onchange="handleChange(this)"><br>
                                             <label for="v2" id="v2"></label> 
@@ -227,7 +254,19 @@
                                             <label for="v6" id="v6"></label>
                                             <input type="number" id="var6" name="v6" class="myInput" onchange="handleChange(this)"><br>
                                             <label for="v7" id="v7"></label>
-                                            <input type="number" id="var7" name="v7" class="myInput" onchange="handleChange(this)"><br><br><br>
+                                            <input type="number" id="var7" name="v7" class="myInput" onchange="handleChange(this)"><br> <br>
+                                            <div class="tooltip">What is (DEM)?
+                                                <span class="tooltiptext">
+                                                    DEM stands for demographic variable, meaning that it is a calculation of density
+                                                    from that specific service. All the DEM variables are calculated on a ratio 1:1, 
+                                                    meaning that for each adult person, there is X units of that specific service (i.e. A value of 0.5
+                                                    <b><u> in Credit Card would mean that, on such municipality, for every 2 people there is, on average, 1 issued
+                                                    credit card) </u></b>
+                                                    <!-- For non-DEM variables, the values are calculated for number of households who have at least one 
+                                                    device or service for the one specified. Same as above, the ratio is 1:1, <b><u>meaning that a value of 2 in 
+                                                    PC would tell us that, on such municipality, there are 2 PC's for each household</u</b> -->
+                                                </span>
+                                            </div><br><br>
                                             <input type="submit" value="Calculate" id ="submit" onclick="runModel()">
                                             <input type="submit" value="Clear All" id="clear" onclick = "erasedata()">
                                         </div>
@@ -237,7 +276,7 @@
                             </div>
                             <div class="col-lg-7 col-md-12">
                                 <!-- <div class="box"> -->
-                                    <div class="card  card-tasks">
+                                    <div class="card">
                                         <div class="card-header ">
                                             <h4 class="card-title" style = "text-align: center;">Model Result</h4>
                                         </div>
@@ -246,20 +285,11 @@
                                         </div>
                                     </div>
                                 <!-- </div> -->
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav>
-                    </nav>
-                </div>
-            </footer>
         </div>
-    </div>
- 
 </body>
 <!-- Template Main JS File -->
 <script src="static/js/main.js"></script>
