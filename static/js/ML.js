@@ -98,6 +98,7 @@ var values = [
 
 // Modify the variables used for each model
 function selector(model){
+	
 	let variable_list = []
 	let value_list = []
 	let sum = 0
@@ -124,6 +125,8 @@ function selector(model){
 		d3.select("#var7").attr("class", "myInput")
 	}
 	erasedata()
+	cleanmodel()
+	model_values()
 }
 
 // limiting input to a range of 0 to 10 
@@ -136,6 +139,8 @@ function handleChange(input) {
 
 
 function munUpdate(state){
+	cleanmodel()
+	d3.select("#testing").html('')
 	d3.json("/api_ML_" +state).then(function(data){
 		let mun = data[0].NOMBRE_MUNICIPIO
 		let selection = d3.select("#testing")
@@ -147,8 +152,9 @@ function munUpdate(state){
 		.attr("value", d=>d.NOMBRE_MUNICIPIO)
 		.text(d=>d.NOMBRE_MUNICIPIO)
 		selection.exit().remove()
-		model_values(mun)
+		model_values()
 	})	
+	
 	
 }
 
@@ -162,7 +168,8 @@ function runModel(){
 	d3.json("/api_ML_" + state).then(function(data){
 		
 		let mun_data = data.filter(d=>d.NOMBRE_MUNICIPIO === mun)[0]
-		console.log(mun_data)
+		
+		
 		
 		for(i = 1; i<8; i++){
 			let classvalue = document.getElementById("var"+i)
@@ -171,13 +178,14 @@ function runModel(){
 				
 				let var_name = document.getElementById("v"+i).innerHTML
 				let var_db = ML_list[var_name]
+				if(mun_data[var_db] === ""){
+					console.log("empty")
+				}
 				input_list.push(document.getElementById("var"+i).value)
 				original_list.push(mun_data[var_db])
 				
 			}
 		}
-		console.log(original_list)				
-		console.log(input_list)
 	})
 
 	let model = document.getElementById("modelSelector").value
@@ -263,14 +271,21 @@ function runModel(){
 	}
 }
 
-function model_values(mun){
+function model_values(){
+	cleanmodel()
+	let mun = document.getElementById("testing").value
 	let state = document.getElementById("stateSelector").value
 	
 	d3.json("/api_ML_" + state).then(function(data){
 		
 		let mun_data = data.filter(d=>d.NOMBRE_MUNICIPIO === mun)[0]
-		
-		
+		let model = document.getElementById("modelSelector").value
+		let model_var = ML_list[model]
+		let label = document.getElementById("modelSelector").value
+
+		d3.select("#v0").text(label)
+		document.getElementById("var0").value = parseFloat(mun_data[model_var]).toFixed(2)
+
 		for(i = 1; i<8; i++){
 			let classvalue = document.getElementById("var"+i)
 			let test = classvalue.classList.contains("inputhidden")
@@ -282,6 +297,8 @@ function model_values(mun){
 				document.getElementById("var"+i).value =parseFloat(mun_data[var_db]).toFixed(2); 				
 			}
 		}
+		
+
 	})
 	
 }
@@ -293,7 +310,159 @@ function erasedata(){
 }
 
 function showresult(result){
-	d3.select("#result").text(parseFloat(result).toFixed(2))
+	let state = document.getElementById("stateSelector").value
+	let mun = document.getElementById("testing").value
+	let current = parseFloat(document.getElementById("var0").value).toFixed(2)
+	// d3.select("#result").text(parseFloat(result).toFixed(2))
+
+	d3.json("/api_ML_" + state).then(function(data){
+		
+		let mun_data = data.filter(d=>d.NOMBRE_MUNICIPIO === mun)[0]
+
+		let current = document.getElementById("var0").value
+		let model_label = document.getElementById("v0").innerHTML
+		let original_values = []
+		let input_values = []
+		let label_list = []
+
+		original_values.push(current)
+		input_values.push(parseFloat(result).toFixed(2))
+		label_list.push(model_label)
+		
+
+		for(i = 1; i<8; i++){
+			let classvalue = document.getElementById("var"+i)
+			let test = classvalue.classList.contains("inputhidden")
+			if (test === false){
+				let new_value = document.getElementById("var" + i).value				
+				let var_name = document.getElementById("v"+i).innerHTML
+				let old_value = ML_list[var_name]
+				original_values.push(parseFloat(mun_data[old_value]).toFixed(2))
+				input_values.push(parseFloat(new_value).toFixed(2))
+				label_list.push(var_name)
+							
+			}
+		}
+
+		var data2 = [
+			{
+			  type: "indicator",
+			  mode: "number+gauge+delta",
+		// Predicted value
+			  value: result,
+			  domain: { x: [0, 2], y: [0, 2] },
+			  title: '',
+		// Actual value
+			  delta: { reference: current},
+			  gauge: {
+				shape: "bullet",
+				axis: { range: [null, result + 0.5] },
+				threshold: {
+				  line: { color: "red", width: 3 },
+				  thickness: 0.75,
+		// Actual value
+				  value: current
+				},
+				steps: [
+				  { range: [0, result + 0.5], color:  "#D1ECE5" },
+				]
+			  }
+			}
+		  ];
+
+		  
+	
+		  var trace1 = {
+			x: label_list,
+			y: original_values,
+			type: 'bar',
+			name: 'Current values',
+			marker: {
+			  color: '#CECECE',
+			  opacity: 0.8,
+			}
+		  };
+
+		  var layout ={
+			autosize:true,
+			plot_bgcolor: "white",
+			height:100,
+			margin:{
+				l:100,
+				t:20,
+				r:100,
+				b:20
+			}
+		  }
+		  
+		  var trace2 = {
+			x: label_list,
+			y: input_values,
+			type: 'bar',
+			name: 'Predicted values',
+			marker: {
+			  color: ['#BD0707','#69b3a2','#69b3a2','#69b3a2','#69b3a2','#69b3a2','#69b3a2','#69b3a2'],
+			  opacity: 1
+			}
+		  };
+		  
+		  var data = [trace1, trace2];
+		  
+		  var layout1 = {
+			title: '',
+			xaxis: {
+			  tickangle: 30
+			},
+			legend:{
+				x:0.4,
+				y:1.2,
+				font: {
+					family: 'Helvetica',
+					size: 18,
+					color: '#000'
+				  },
+			},
+			margin:{
+				b:100,
+				t:20
+			},
+			barmode: 'group'
+		  };
+		  
+		Plotly.newPlot('barchart', data, layout1, config);  
+		Plotly.newPlot('gauge', data2, layout, config);
+		
+		let percentage = parseFloat(((parseFloat(result) / parseFloat(current)) -1)*100).toFixed(2)
+
+		d3.select("#title")
+		.html('<h3>Machine Learning model for ' + model_label + ' in ' + mun)
+		d3.select("#text1")
+		.html('<p style="text-align:center";> Considering the written values, you can see how the model was affected from its original situation. <br>The red line shows us the current (real) value, while the green bar represents the forecast ')
+		d3.select("#text2")
+		.html('<p>The ' + model_label + ' availability is currently on <b>' + current + '</b>, while the predicted value is now located at <b>' + parseFloat(result).toFixed(2) + '</b>.<br><h5><b><u> This would represent a change of '+ parseFloat(((parseFloat(result) / parseFloat(current)) -1)*100).toFixed(2) + '%</u></b></h5>') 
+		console.log(model_label)
+		if(model_label == "Streaming"){
+			d3.select("#text3")
+		.html('<p><b style="text-align:center;">Final Advice: </b>If the percent change is above 25%, you should consider this is a good bussines opportunity.<br><b>Note: </b>For a better predictive result, you should consider variations in the explanatory variables based on your professional experience and any other source of information you consider relevant</p>')
+		}else{
+			d3.select("#text3")
+		.html('<p><b style="text-align:center;">Final Advice: </b>If the percent change is above 10%, you should consider this is a good bussines opportunity.<br><b>Note: </b>For a better predictive result, you should consider variations in the explanatory variables based on your professional experience and any other source of information you consider relevant. <br>Finally, always have in mind these model is based on historical data following certain patterns, which could change anytime in the future.</p>')
+		}
+		
+		
+	})
+
+	
 }
+
+function cleanmodel(){
+	d3.select("#title").html('Please change the variables to the values that you want and click on Calculate to see our reccomendation')
+	d3.select("#text1").html('')
+	d3.select("#gauge").html('')
+	d3.select("#text2").html('')
+	d3.select("#barchart").html('')
+	d3.select("#text3").html('')
+}
+
 
 init()

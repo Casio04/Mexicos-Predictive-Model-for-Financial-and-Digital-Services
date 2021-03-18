@@ -49,9 +49,9 @@ function init(selectedVar) {
         yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
         // Define the div for the tooltip
-var div = d3.select("body").append("div")	
-.attr("class", "tooltip")				
-.style("opacity", 0);
+        var div = d3.select("body").append("div")	
+        .attr("class", "tooltip")				    
+        .style("opacity", 0);
 
         var bars = svg.selectAll(".bar")
             .data(data)
@@ -59,7 +59,9 @@ var div = d3.select("body").append("div")
             .append("rect")
             .attr("class", "bar")
             .on('mouseover', function (event, d) {
-                const[x, y] = d3.pointer(event);
+                let coordinates = d3.pointer(this)
+                let x = coordinates[0]
+                let y = coordinates [0];
                 tooltip
                   .html(
                     `<div>Country: ${d.Year}</div><div>Value: ${d.Com}</div>`
@@ -257,7 +259,7 @@ function update(selectedVar) {
         .attr("class", "myYaxis")
     // Reading data from API
     d3.json("../api_h").then(function (data) {
-       
+        console.log(data)
         // X axis
         x.domain(data.map(function (d) { return d.Year; }))
         xAxis.transition().duration(1000).call(d3.axisBottom(x))
@@ -267,10 +269,10 @@ function update(selectedVar) {
         yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
         // Define the div for the tooltip
-var div = d3.select("body").append("div")	
-.attr("class", "tooltip")				
-.style("opacity", 0);
-
+        var div = d3.select("body").append("div")	
+        .attr("class", "tooltip")				
+        .style("opacity", 0);
+       
         var bars = svg.selectAll(".bar")
             .data(data)
             .enter()

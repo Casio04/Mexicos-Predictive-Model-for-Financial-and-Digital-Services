@@ -174,3 +174,15 @@ form {
 ol{
   text-align: left;
 }
+
+.bar {
+  fill: rgb(8, 187, 112);
+}
+
+.bar:hover {
+  fill: rgba(26, 51, 83, 0.938);
+}
+
+input[id="var0"], textarea {
+  background-color: #e6e6e6 !important;
+}
