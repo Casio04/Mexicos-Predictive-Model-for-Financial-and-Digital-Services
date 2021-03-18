@@ -1041,6 +1041,8 @@ function chart(){
             let digital_layout = {
                 autosize: true,
                 title: '',
+                paper_bgcolor: '#eaeaea',
+                plot_bgcolor: '#eaeaea',
                 font: {
                     family: 'Helvetica, monospace',
                     size: 12},
@@ -1080,6 +1082,8 @@ function chart(){
             var data = [trace1]
             var layout = {
                 title: '',
+                paper_bgcolor: '#eaeaea',
+                plot_bgcolor: '#eaeaea',
                 font:{
                   family: 'Raleway, sans-serif'
                 },
