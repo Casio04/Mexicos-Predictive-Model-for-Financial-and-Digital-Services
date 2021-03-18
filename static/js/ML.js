@@ -279,7 +279,7 @@ function model_values(mun){
 				let var_name = document.getElementById("v"+i).innerHTML
 				let var_db = ML_list[var_name]
 				
-				document.getElementById("var"+i).value = mun_data[var_db]				
+				document.getElementById("var"+i).value =parseFloat(mun_data[var_db]).toFixed(2); 				
 			}
 		}
 	})
@@ -293,7 +293,7 @@ function erasedata(){
 }
 
 function showresult(result){
-	d3.select("#result").text(result)
+	d3.select("#result").text(parseFloat(result).toFixed(2))
 }
 
 init()
