@@ -32,6 +32,10 @@ def tableau():
 def mun_view():
     return render_template("state.html")
 
+@app.route("/about.html")
+def about():
+    return render_template("about.html")
+    
 @app.route("/mLearning.html")
 def machine_learning():
     return render_template("mLearning.html")

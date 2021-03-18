@@ -3,10 +3,10 @@
 // A function that create the plot for a given variable:
 function init(selectedVar) {
     d3.select("svg").remove();
-    d3.selectAll("#Commercial-Branches").style("background-color","black");
-    d3.selectAll("#Commercial-Branches").style("color","white");
+    d3.selectAll("#Commercial-Branches").style("background-color", "black");
+    d3.selectAll("#Commercial-Branches").style("color", "white");
     d3.select("#Bar-Title").text(selectedVar)
-    
+
     var widthdiv = document.getElementById('my_dataviz').clientWidth;
     // set the dimensions and margins of the graph
     var margin = { top: 30, right: 30, bottom: 70, left: 60 },
@@ -21,7 +21,7 @@ function init(selectedVar) {
         .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-    
+
 
 
     // Initialize the X axis
@@ -30,28 +30,30 @@ function init(selectedVar) {
         .padding(0.2);
     var xAxis = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-    
-       
+
+
     // Initialize the Y axis
     var y = d3.scaleLinear()
         .range([height, 0]);
     var yAxis = svg.append("g")
         .attr("class", "myYaxis")
+        .style("font", "10px times")
     // Reading data from API
     d3.json("../api_h").then(function (data) {
-       
+        
         // X axis
         x.domain(data.map(function (d) { return d.Year; }))
         xAxis.transition().duration(1000).call(d3.axisBottom(x))
 
         // Add Y axis
         y.domain([0, d3.max(data, function (d) { return +d[selectedVar] })]);
+
         yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
         // Define the div for the tooltip
-        var div = d3.select("body").append("div")	
-        .attr("class", "tooltip")				    
-        .style("opacity", 0);
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
         var bars = svg.selectAll(".bar")
             .data(data)
@@ -59,17 +61,14 @@ function init(selectedVar) {
             .append("rect")
             .attr("class", "bar")
             .on('mouseover', function (event, d) {
-                let coordinates = d3.pointer(this)
-                let x = coordinates[0]
-                let y = coordinates [0];
+
                 tooltip
-                  .html(
-                    `<div>Country: ${d.Year}</div><div>Value: ${d.Com}</div>`
-                  )
-                  .style('visibility', 'visible')
-                  .style("left", (x) + "px")
-                  .style("top", (y) + "px");
-                  console.log(x+" "+ y)
+                    .html(
+                        `<div>Year: ${d.Year}</div><div>Value: ${d[selectedVar]}</div>`
+                    )
+                    .style('visibility', 'visible')
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY) + "px");
 
                 d3.select(this).transition().attr('fill', "blue");
 
@@ -88,11 +87,11 @@ function init(selectedVar) {
             .attr("width", x.bandwidth())
             .attr("height", function (d) { return height - y(d[selectedVar]); })
             .attr("fill", "#69b3a2")
-            .text(function(d) { 
-            return d.Year;
+            .text(function (d) {
+                return d.Year;
             })
-        
-            tooltip = d3
+
+        tooltip = d3
             .select('body')
             .append('div')
             .attr('class', 'd3-tooltip')
@@ -104,16 +103,16 @@ function init(selectedVar) {
             .style('border-radius', '4px')
             .style('color', '#fff')
             .text('a simple tooltip');
-            
+
     })
-    
+
 };
 
 
 init('Commercial-Branches');
 
 function redraw() {
-    selectedVar = 'Commercial-Branches'
+    selectedVar = getElementById
     d3.select("svg").remove();
 
     var widthdiv = document.getElementById('my_dataviz').clientWidth;
@@ -130,8 +129,6 @@ function redraw() {
         .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-    
-
 
     // Initialize the X axis
     var x = d3.scaleBand()
@@ -139,28 +136,30 @@ function redraw() {
         .padding(0.2);
     var xAxis = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-    
-       
+
+
     // Initialize the Y axis
     var y = d3.scaleLinear()
         .range([height, 0]);
     var yAxis = svg.append("g")
         .attr("class", "myYaxis")
+        .style("font", "10px times")
     // Reading data from API
     d3.json("../api_h").then(function (data) {
-       
+        
         // X axis
         x.domain(data.map(function (d) { return d.Year; }))
         xAxis.transition().duration(1000).call(d3.axisBottom(x))
 
         // Add Y axis
         y.domain([0, d3.max(data, function (d) { return +d[selectedVar] })]);
+
         yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
         // Define the div for the tooltip
-var div = d3.select("body").append("div")	
-.attr("class", "tooltip")				
-.style("opacity", 0);
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
         var bars = svg.selectAll(".bar")
             .data(data)
@@ -168,15 +167,14 @@ var div = d3.select("body").append("div")
             .append("rect")
             .attr("class", "bar")
             .on('mouseover', function (event, d) {
-                const[x, y] = d3.pointer(event);
+
                 tooltip
-                  .html(
-                    `<div>Country: ${d.Year}</div><div>Value: ${d.Com}</div>`
-                  )
-                  .style('visibility', 'visible')
-                  .style("left", (x) + "px")
-                  .style("top", (y) + "px");
-                  console.log(x+" "+ y)
+                    .html(
+                        `<div>Year: ${d.Year}</div><div>Value: ${d[selectedVar]}</div>`
+                    )
+                    .style('visibility', 'visible')
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY) + "px");
 
                 d3.select(this).transition().attr('fill', "blue");
 
@@ -195,11 +193,11 @@ var div = d3.select("body").append("div")
             .attr("width", x.bandwidth())
             .attr("height", function (d) { return height - y(d[selectedVar]); })
             .attr("fill", "#69b3a2")
-            .text(function(d) { 
-            return d.Year;
+            .text(function (d) {
+                return d.Year;
             })
-        
-            tooltip = d3
+
+        tooltip = d3
             .select('body')
             .append('div')
             .attr('class', 'd3-tooltip')
@@ -211,22 +209,23 @@ var div = d3.select("body").append("div")
             .style('border-radius', '4px')
             .style('color', '#fff')
             .text('a simple tooltip');
-            
+
     })
+
 }
 
 // A function that update the plot for a given variable:
 function update(selectedVar) {
     d3.select("svg").remove();
-    d3.selectAll(".variables").style("background-color","white");
-    d3.selectAll(".variables").style("color","black");
-    d3.selectAll(".variables").style("border-color","black");
+    d3.selectAll(".variables").style("background-color", "white");
+    d3.selectAll(".variables").style("color", "black");
+    d3.selectAll(".variables").style("border-color", "black");
     d3.select("#Bar-Title").text(selectedVar);
     let thisone = "#" + selectedVar
     console.log(thisone)
-    d3.select(thisone).style("background-color","black")
-    d3.select(thisone).style("border-color","white");
-    d3.select(thisone).style("color","white");
+    d3.select(thisone).style("background-color", "black")
+    d3.select(thisone).style("border-color", "white");
+    d3.select(thisone).style("color", "white");
     var widthdiv = document.getElementById('my_dataviz').clientWidth;
     // set the dimensions and margins of the graph
     var margin = { top: 30, right: 30, bottom: 70, left: 60 },
@@ -241,8 +240,6 @@ function update(selectedVar) {
         .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-    
-
 
     // Initialize the X axis
     var x = d3.scaleBand()
@@ -250,44 +247,45 @@ function update(selectedVar) {
         .padding(0.2);
     var xAxis = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-    
-       
+
+
     // Initialize the Y axis
     var y = d3.scaleLinear()
         .range([height, 0]);
     var yAxis = svg.append("g")
         .attr("class", "myYaxis")
+        .style("font", "10px times")
     // Reading data from API
     d3.json("../api_h").then(function (data) {
-        console.log(data)
+        
         // X axis
         x.domain(data.map(function (d) { return d.Year; }))
         xAxis.transition().duration(1000).call(d3.axisBottom(x))
 
         // Add Y axis
         y.domain([0, d3.max(data, function (d) { return +d[selectedVar] })]);
+
         yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
         // Define the div for the tooltip
-        var div = d3.select("body").append("div")	
-        .attr("class", "tooltip")				
-        .style("opacity", 0);
-       
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
         var bars = svg.selectAll(".bar")
             .data(data)
             .enter()
             .append("rect")
             .attr("class", "bar")
             .on('mouseover', function (event, d) {
-                const[x, y] = d3.pointer(event);
+
                 tooltip
-                  .html(
-                    `<div>Country: ${d.Year}</div><div>Value: ${d.Com}</div>`
-                  )
-                  .style('visibility', 'visible')
-                  .style("left", (x) + "px")
-                  .style("top", (y) + "px");
-                  console.log(x+" "+ y)
+                    .html(
+                        `<div>Year: ${d.Year}</div><div>Value: ${d[selectedVar]}</div>`
+                    )
+                    .style('visibility', 'visible')
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY) + "px");
 
                 d3.select(this).transition().attr('fill', "blue");
 
@@ -306,11 +304,11 @@ function update(selectedVar) {
             .attr("width", x.bandwidth())
             .attr("height", function (d) { return height - y(d[selectedVar]); })
             .attr("fill", "#69b3a2")
-            .text(function(d) { 
-            return d.Year;
+            .text(function (d) {
+                return d.Year;
             })
-        
-            tooltip = d3
+
+        tooltip = d3
             .select('body')
             .append('div')
             .attr('class', 'd3-tooltip')
@@ -322,8 +320,9 @@ function update(selectedVar) {
             .style('border-radius', '4px')
             .style('color', '#fff')
             .text('a simple tooltip');
-            
+
     })
+
 };
 
 window.onresize = redraw;
