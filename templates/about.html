@@ -157,20 +157,22 @@
                                      BACKGROUND</h4>
                                  <!-- <p class="card-category">Background</p> -->
                              </div>
-                             <div class="card-body ">
-                                 <img  class="img-about card-img-top" src="../static/img/bg.PNG"
+                             <div class="card-body text-justify">
+                                 <img  class="img-about card-img-top" src="../static/img/bg_zoom.PNG"
                                      alt="Card image cap">
  
                                  <p>To see about the behavior of some indicators of financial penetration over the last
                                      few years in the country, we used D3.js, a JavaScript library for producing dynamic,
                                      interactive data visualizations in web browsers. 
                                      We build a barplot with the data we extracted from our api which, in turn, 
-                                     feeds on the information in the Mongo database. </p>
+                                     feeds on the information in the Mongo database. 
+                                     To achieve this view, we used the historical data provided by INEGI in its financial inclusion database, 
+                                     where we were able to find information from the last two quarters of 2011 to the first two quarters of 2020.</p>
                                  <hr>
-                                 <div class="legend">
-                                     <a href="https://d3js.org/" class="link-about">| Tools</a>
-                                     <a href="https://www.inegi.org.mx/" class="link-about">| Source</a>
-                                     <a href="background.html" class="link-about">| Take a look</a>
+                                 <div class="legend text-center">
+                                     <a href="https://d3js.org/" target="_blank" class="link-about">| Tools</a>
+                                     <a href="https://www.inegi.org.mx/" target="_blank" class="link-about">| Source</a>
+                                     <a href="background.html" target="_blank" class="link-about">| Take a look</a>
                                  </div>
                                  <hr>
                                  <div class="stats">
@@ -186,15 +188,16 @@
                                      NATIONAL OVERVIEW</h4>
                                  <!-- <p class="card-category">Last Campaign Performance</p> -->
                              </div>
-                             <div class="card-body ">
-                                 <img class="img-about card-img-top" src="../static/img/national.jfif" alt="Card image cap">
+                             <div class="card-body text-justify">
+                                 <img class="img-about card-img-top " src="../static/img/national.jfif" alt="Card image cap">
  
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam dicta pariatur reprehenderit ipsam perspiciatis nobis, aliquam facere at laborum! Illum id voluptates rerum facere dolor, amet beatae nemo fugit culpa molestias voluptas odio sunt nobis, maiores ea dolorum in nam at iste porro voluptatibus impedit. Officia molestias consequuntur cupiditate autem earum placeat aliquid similique vitae harum dolores. Aspernatur nam ipsam a dignissimos voluptatum ut dolorem, perferendis reprehenderit quaerat excepturi nulla quia neque. Voluptatibus facilis tenetur, ea alias sunt architecto illum?</p>
+                                 <p>Using Tableau Public, we created some visualization that we can use to explain what the situation is for financial services in Mexico We used maps and scatterplots to explain this in detail and created three visualizations. The first one contains a map of the country where you can see the concentration of each service by state. 
+                                     The second one is a scatterplot where we can analyze the relationship between any digital or financial variable, this is really helpful to take a hint on how they relate.. The last visualization is another map where we can see the amount of a financial service per 10,000, divided by state. This is a very interesting map, as we can spot areas of opportunity for development in the country, and where there is a surplus of any service.</p>
                                  <hr>
-                                 <div class="legend">
-                                     <a href="https://www.tableau.com/" class="link-about">| Tools</a>
-                                     <a href="https://www.inegi.org.mx/" class="link-about">| Source</a>
-                                     <a href="national.html" class="link-about">| Take a look</a>
+                                 <div class="legend text-center">
+                                     <a href="https://www.tableau.com/" target="_blank" class="link-about">| Tools</a>
+                                     <a href="https://www.inegi.org.mx/" target="_blank" class="link-about">| Source</a>
+                                     <a href="national.html" target="_blank" class="link-about">| Take a look</a>
                                  </div>
                                  <hr>
                                  <div class="stats">
@@ -212,17 +215,17 @@
                                      ANALYSIS</h4>
                                  <!-- <p class="card-category">Last Campaign Performance</p> -->
                              </div>
-                             <div class="card-body ">
+                             <div class="card-body text-justify">
                                  <img class="img-about card-img-top" src="../static/img/statal.PNG" alt="Card image cap">
  
                                  <p>The map for this view and all its functionalities is provided by Mapbox and Leaflet. We used dynamic filtering with the help of Javascript d3 to update the maps, the description and the charts. The creation of the charts and its content is provided by Javascript Plotly. 
                                      Furthermore, a geoJSON was created to retrieve all the coordinates for each municipality. This data is provided by INEGI through the Census 2020 poll. 
                                      As in the other views, the database was loaded to MongoDB Atlas and read with Flask, a back-end library for Python.</p>
                                  <hr>
-                                 <div class="legend">
-                                     <a href="https://leafletjs.com//" class="link-about">| Tools</a>
-                                     <a href="https://www.inegi.org.mx/" class="link-about">| Source</a>
-                                     <a href="state.html" class="link-about">| Take a look</a>
+                                 <div class="legend text-center">
+                                     <a href="https://leafletjs.com//" target="_blank" class="link-about">| Tools</a>
+                                     <a href="https://www.inegi.org.mx/" target="_blank" class="link-about">| Source</a>
+                                     <a href="state.html" target="_blank" class="link-about">| Take a look</a>
                                  </div>
                                  <hr>
                                  <div class="stats">
@@ -238,8 +241,8 @@
                                      MACHINE LEARNING</h4>
                                  <!-- <p class="card-category">Last Campaign Performance</p> -->
                              </div>
-                             <div class="card-body ">
-                                 <img class="img-about card-img-top" src="../static/img/ml.jfif" alt="Card image cap">
+                             <div class="card-body text-justify">
+                                 <img class="img-about card-img-top" src="../static/img/heatmap.png" alt="Card image cap">
  
                                  <p>
                                      A machine learning application to answer a regular business question: Which is the expected effect of financial and digital variables on other fundamental variables in Mexico? 
@@ -247,10 +250,10 @@
  The model was developed based on the standard open source for predictive data analysis in python language: Scikit-learn. The approach was an unsupervised learning model, particularly Multiple Linear Regression and Random Forest Regression.
                                  </p>
                                  <hr>
-                                 <div class="legend">
-                                     <a href="https://scikit-learn.org/stable/" class="link-about">| Tools</a>
-                                     <a href="https://www.inegi.org.mx/" class="link-about">| Source</a>
-                                     <a href="mLearning.html" class="link-about">| Take a look</a>
+                                 <div class="legend text-center">
+                                     <a href="https://scikit-learn.org/stable/" target="_blank" class="link-about">| Tools</a>
+                                     <a href="https://www.inegi.org.mx/" target="_blank" class="link-about">| Source</a>
+                                     <a href="mLearning.html" target="_blank" class="link-about">| Take a look</a>
                                  </div>
                                  <hr>
                                  <div class="stats">

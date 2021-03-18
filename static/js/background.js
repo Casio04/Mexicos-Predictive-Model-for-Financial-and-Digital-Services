@@ -64,7 +64,7 @@ function init(selectedVar) {
 
                 tooltip
                     .html(
-                        `<div>Year: ${d.Year}</div><div>Value: ${d[selectedVar]}</div>`
+                        `<div>Year: ${d.Year}</div><div>Value: ${formatNumber(d[selectedVar])}</div>`
                     )
                     .style('visibility', 'visible')
                     .style("left", (event.pageX) + "px")
@@ -170,7 +170,7 @@ function redraw() {
 
                 tooltip
                     .html(
-                        `<div>Year: ${d.Year}</div><div>Value: ${d[selectedVar]}</div>`
+                        `<div>Year: ${d.Year}</div><div>Value: ${formatNumber(d[selectedVar])}</div>`
                     )
                     .style('visibility', 'visible')
                     .style("left", (event.pageX) + "px")
@@ -281,7 +281,7 @@ function update(selectedVar) {
 
                 tooltip
                     .html(
-                        `<div>Year: ${d.Year}</div><div>Value: ${d[selectedVar]}</div>`
+                        `<div>Year: ${d.Year}</div><div>Value: ${formatNumber(d[selectedVar])}</div>`
                     )
                     .style('visibility', 'visible')
                     .style("left", (event.pageX) + "px")
@@ -324,5 +324,9 @@ function update(selectedVar) {
     })
 
 };
+
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
 
 window.onresize = redraw;
