@@ -1,5 +1,6 @@
 // Variable for responsive plotly charts
-var config = {responsive: true}
+var config = {responsive: true,
+	displayModeBar: false}
 
 function init(){
     // Reading data from API
@@ -415,7 +416,7 @@ function showresult(result){
 			},
 			legend:{
 				x:0.4,
-				y:1.2,
+				y:1.1,
 				font: {
 					family: 'Helvetica',
 					size: 18,
@@ -437,16 +438,16 @@ function showresult(result){
 		d3.select("#title")
 		.html('<h3>Machine Learning model for ' + model_label + ' in ' + mun)
 		d3.select("#text1")
-		.html('<p style="text-align:center";> Considering the written values, you can see how the model was affected from its original situation. <br>The red line shows us the current (real) value, while the green bar represents the forecast ')
+		.html('<p style="text-align:left";> Considering the written values, you can see how the model was affected from its original situation. <br>The red line shows us the current (real) value, while the green bar represents the forecast ')
 		d3.select("#text2")
-		.html('<p>The ' + model_label + ' availability is currently on <b>' + current + '</b>, while the predicted value is now located at <b>' + parseFloat(result).toFixed(2) + '</b>.<br><h5><b><u> This would represent a change of '+ parseFloat(((parseFloat(result) / parseFloat(current)) -1)*100).toFixed(2) + '%</u></b></h5>') 
+		.html('<p>The ' + model_label + ' availability is currently on <b>' + current + '</b>, while the predicted value is now located at <b>' + parseFloat(result).toFixed(2) + '</b>.<br><h5><b> This would represent a change of '+ parseFloat(((parseFloat(result) / parseFloat(current)) -1)*100).toFixed(2) + '%</b></h5>') 
 		
 		if(model_label == "Streaming"){
 			d3.select("#text3")
-		.html('<p><b style="text-align:center;">Final Advice: </b>If the percent change is above 25%, you should consider this is a good bussines opportunity.<br><b>Note: </b>For a better predictive result, you should consider variations in the explanatory variables based on your professional experience and any other source of information you consider relevant</p>')
+		.html('<p style="text-align:justify";><b style="text-align:center;">Final Advice: </b>If the percent change is above 25%, you should consider this is a good bussines opportunity.<br><b>Note: </b>For a better predictive result, you should consider variations in the explanatory variables based on your professional experience and any other source of information you consider relevant</p>')
 		}else{
 			d3.select("#text3")
-		.html('<p><b style="text-align:center;">Final Advice: </b>If the percent change is above 10%, you should consider this is a good bussines opportunity.<br><b>Note: </b>For a better predictive result, you should consider variations in the explanatory variables based on your professional experience and any other source of information you consider relevant. <br>Finally, always have in mind these model is based on historical data following certain patterns, which could change anytime in the future.</p>')
+		.html('<p style="text-align:justify";><b style="text-align:center;">Final Advice: </b>If the percent change is above 10%, you should consider this is a good bussines opportunity.<br><b>Note: </b>For a better predictive result, you should consider variations in the explanatory variables based on your professional experience and any other source of information you consider relevant. <br>Finally, always have in mind these model is based on historical data following certain patterns, which could change anytime in the future.</p>')
 		}
 		
 		

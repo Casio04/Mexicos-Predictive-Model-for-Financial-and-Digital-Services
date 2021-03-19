@@ -1,4 +1,5 @@
-var config = {responsive: true}
+var config = {responsive: true,
+    displayModeBar: false}
 // Function to initiate dropdown with states name and product types
 function init(){
     // Reading data from API

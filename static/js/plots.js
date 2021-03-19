@@ -26,6 +26,9 @@ let  data1 = [
   ];
   let layout = {
       title : "",
+      xaxis: {
+			  tickangle: 30
+			},
       font: {
         // family: 'Courier New, monospace',
         size: 12,
@@ -35,7 +38,7 @@ let  data1 = [
       margin: {
         l: 200,
         r: 50,
-        b: 100,
+        b: 140,
         t: 50,
         pad: 4
       },
