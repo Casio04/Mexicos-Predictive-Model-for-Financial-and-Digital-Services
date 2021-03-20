@@ -45,7 +45,7 @@ def states():
 
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera    
-    estados = db.estados.find()
+    estados = db.estados.find().sort([("NOMBRE_ENTIDAD",1)])
     
     states_list = []
     for estado in estados:
@@ -59,7 +59,7 @@ def municipalities():
    
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera
-    municipios = db.municipios.find()
+    municipios = db.municipios.find().sort([("NOMBRE_ENTIDAD",1), ("NOMBRE_MUNICIPIO", 1)])
     
     mun_list = []
     for mun in municipios:
@@ -74,7 +74,7 @@ def coordinates(state):
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera
     
-    municipios = db.municipios_coords.find({"features.properties.NOMBRE_ENTIDAD": state},{'_id': False})
+    municipios = db.municipios_coords.find({"features.properties.NOMBRE_ENTIDAD": state},{'_id': False}).sort([("NOMBRE_MUNICIPIO", 1)])
     mun_list = []
     for mun in municipios:
         mun_list.append(mun)
@@ -89,7 +89,7 @@ def get_h():
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera
     # Store the entire team collection in a list
-    periodos = db.historical.find()
+    periodos = db.historical.find().sort([("Year", 1)])
 
     per_list = []
     for per in periodos:
@@ -104,7 +104,7 @@ def ML_model(state):
     client = pymongo.MongoClient(conn)
     db = client.inclusion_financiera
     # Store the entire team collection in a list
-    model = db.MLmodel.find({"NOMBRE_ENTIDAD": state},{'_id': False})
+    model = db.MLmodel.find({"NOMBRE_ENTIDAD": state},{'_id': False}).sort([("NOMBRE_ENTIDAD",1), ("NOMBRE_MUNICIPIO", 1)]) 
 
     m_list = []
     for m in model:
