@@ -132,8 +132,9 @@ function selector(model){
 
 // limiting input to a range of 0 to 10 
 function handleChange(input) {
-    if (input.value < 0) input.value = 0;
-    if (input.value > 10) input.value = 10;
+	let initial = document.getElementById(input.id).defaultValue
+	if(parseFloat(input.value) > (parseFloat(initial) + 1)){input.value = parseFloat(initial) + 1}
+    if (input.value < 0){input.value = 0};
   }
 
 // running function to calculate prediction from model
@@ -212,6 +213,7 @@ function runModel(){
 		if(v3.length === 0){v3 = 0}
 		if(v4.length === 0){v4 = 0}
 		if(v5.length === 0){v5 = 0}
+
 
 		for (const [key, value] of Object.entries(pair_models)) {
 			if(value === pair_models[model]){
@@ -295,7 +297,8 @@ function model_values(){
 				let var_name = document.getElementById("v"+i).innerHTML
 				let var_db = ML_list[var_name]
 				
-				document.getElementById("var"+i).value =parseFloat(mun_data[var_db]).toFixed(2); 				
+				document.getElementById("var"+i).defaultValue =parseFloat(mun_data[var_db]).toFixed(2); 		
+				document.getElementById("var"+i).value =parseFloat(mun_data[var_db]).toFixed(2); 		
 			}
 		}
 		

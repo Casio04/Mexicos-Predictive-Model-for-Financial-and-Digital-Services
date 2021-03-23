@@ -216,7 +216,29 @@
                                                 </span>
                                             </div> <br><br>
                                             <p><b> So, how does it work? </b></p>
-                                            <ol>
+                                            <div class="tooltip steps">First
+                                                <span class="tooltiptext first">
+                                                    Pick a variable, a state and a municipality (or you can leave the defaults)
+                                                </span>
+                                            </div>
+                                            <div class="tooltip steps">Second
+                                                <span class="tooltiptext second">
+                                                    Depending on the variable (model) chosen, you will see some services and numbers. The services are those variables that have a strong correlation with
+                                                    the main service, and the numbers show the current access for that service on that Municipality
+                                                </span>
+                                            </div>
+                                            <div class="tooltip steps">Third
+                                                <span class="tooltiptext third">
+                                                    Modify those numbers to anything you want, considering that they should increase in order to affect positively to the main variable (Please look at the "DEM" and "non-DEM"
+                                                    variables information below to have a better understanding)
+                                                </span>
+                                            </div>
+                                            <div class="tooltip steps">Fourth
+                                                <span class="tooltiptext fourth">
+                                                    Click on calculate and we'll explain everything!
+                                                </span>
+                                            </div>
+                                            <!-- <ol>
                                                 <li>
                                                     Pick a variable, a state and a municipality (or you can leave the defaults)
                                                 </li>
@@ -231,7 +253,7 @@
                                                 <li>
                                                     Click on calculate and we'll explain everything!
                                                 </li>
-                                            </ol>
+                                            </ol> -->
                                              </p>
                                             
                                             
@@ -274,6 +296,7 @@
                                                     PC would tell us that, on such municipality, there are 2 PC's for each household</u</b> -->
                                                 </span>
                                             </div><br><br>
+
                                             <input type="submit" value="Calculate" id ="submit" onclick="runModel()">
                                             <input type="submit" value="Clear All" id="clear" onclick = "erasedata()">
                                         </div>

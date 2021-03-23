@@ -186,3 +186,32 @@ ol{
 input[id="var0"], textarea {
   background-color: #e6e6e6 !important;
 }
+
+.steps {
+  border: 1px solid black;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.steps:hover{
+  background-color: #cfcfcf !important;
+}
+
+.first{
+  margin-left: 1px !important;
+  background-color: #188977 !important;
+}
+
+.second{
+  background-color: #137177 !important;
+}
+
+.third{
+  background-color: #0E4D64 !important;
+}
+
+.fourth{
+  background-color: #0A2F51 !important;
+}
