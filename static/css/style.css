@@ -215,3 +215,7 @@ input[id="var0"], textarea {
 .fourth{
   background-color: #0A2F51 !important;
 }
+
+.fixed{
+  margin-right: 1px;
+}
