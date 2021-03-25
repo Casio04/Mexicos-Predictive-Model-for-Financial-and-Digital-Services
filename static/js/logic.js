@@ -3,6 +3,7 @@ var config = {responsive: true,
 // Function to initiate dropdown with states name and product types
 function init(){
     // Reading data from API
+    
     d3.json("../api_mun").then(function(data){
         let states_list =  [...new Set(data.map(d => d.NOMBRE_ENTIDAD))]
         // Create empty array

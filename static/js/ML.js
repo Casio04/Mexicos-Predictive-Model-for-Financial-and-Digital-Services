@@ -161,7 +161,6 @@ function munUpdate(state){
 }
 
 function runModel(){
-	
 	let state = document.getElementById("stateSelector").value
 	let mun = document.getElementById("testing").value
 	
@@ -170,8 +169,6 @@ function runModel(){
 	d3.json("/api_ML_" + state).then(function(data){
 		
 		let mun_data = data.filter(d=>d.NOMBRE_MUNICIPIO === mun)[0]
-		
-		
 		
 		for(i = 1; i<8; i++){
 			let classvalue = document.getElementById("var"+i)
