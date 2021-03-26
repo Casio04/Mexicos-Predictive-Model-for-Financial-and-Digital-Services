@@ -130,66 +130,8 @@
                         </div>
                     </div>
                 </div>
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-12" style="text-align: justify;">
-                            <!-- <div class="box"> -->
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title" style="text-align: center;">What is Machine Learning?</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <p style="text-align: justify;">Having in mind the information and patterns we saw in the previous dashboards, 
-                                            the next step was to train a model with all the information available and considering
-                                            the relationships we identified among every digital and/or financial service <br> 
-                                            The fundamental question that we answer with this specific machine learning model is: <br><b>Which is the
-                                            predicted effect of financial and digital variables based on changes in other variables? </b><br>
-                                            For instance,<i> which is the effect of an increase in computer consumption in a municipality 
-                                            over streaming subscriptions?</i>
-                                        </p>
-                                    </div>
-                                </div>                                               
-                                <div class="card ">
-                                    <div class="card-header ">
-                                        <h4 class="card-title" style="text-align: center;">Model Efficiency</h4>
-                                    </div>
-                                    <div class="card-body ">
-                                        <p style="text-align: justify;">We tested our model for the 5 variables presented, obtaining the following results:</p>
-                                        <div class="table-responsive" id="table">
-                                            <table class="table"></table>
-                                        </div>
-                                        <hr>
-                                        <div class="stats">
-                                           <p stlye="text-align:left" class="smaller"> * The Mean Square Error (MSE) is the average squared difference between the estimated values and the actual value. This is a measure of the quality of our estimations. It means that values closer to zero are better.
-                                               <br> ** The coefficient of detemination (R<sup>2</sup>) tells how good is the model to explain the changes in the variable tested. The strength of the relationship between your model and the dependent variable goes from 0 to 1, where 1 is a perfect fit. In marketing research, R<sup>2</sup> values of 0.75, 0.50, 0.25 are considered as substantial, moderate or weak.
-                                               <a href="https://www.researchgate.net/post/what_is_the_acceptable_r-squared_value#:~:text=While%20for%20exploratory%20research%2C%20using,substantial%2C%20moderate%2C%20or%20weak" target="_blank"> Source</a>
-                                           </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <!-- </div> -->
-                        </div>
-                        <div class="col-lg-7 col-md-12">
-                            <!-- <div class="box"> -->
-                                <div class="card ">
-                                    <div class="card-header ">
-                                        <h4 class="card-title" style="text-align: center;">Heat Map - Digital vs Financial Services in Mexico 2020</h4>
-                                    </div>
-                                    <div class="card-body ">
-                                        <p style="text-align: justify;">Heatmap shows us the direct or indirect relationship of each variable with every other from the data.
-                                            In this case, the yellow square means a perfect 1 to 1 relationship, meaning that when X variable (e.g. PC) increases in 1% from its previous value, 
-                                            the other related variable (e.g. Internet) increases in the same proportion.
-                                            This can quickly tell us how related (or not) are two variables between them.
-                                        </p> <br>
-                                        <div id="heatmap"></div>
-                                    </div>
-                                    
-                                </div>
-                            <!-- </div> -->
-                        </div>
-                    </div>
-                </div>
+            
+                <div class="content">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-5 col-md-12">
@@ -238,7 +180,7 @@
                                                     Click on calculate and we'll explain everything!
                                                 </span>
                                             </div>
-                                             </p>
+                                            </p>
                                             
                                             
                                             <p style="font-size:16px"><b>Please select the desired options:</b></p>
@@ -303,7 +245,7 @@
                                             <div id="title"> Please change the variables to the values that you want and click on Calculate to see our reccomendation</div>
                                             
                                             <div id="text1"></div>
-                                           
+                                        
                                             <br>
                                             <div class="user-select-none svg-container" style="position: center; width: auto; height: 250px;" id="gauge"></div>
                                             <hr>
@@ -314,7 +256,67 @@
                                         </div>                                      
                                     </div>
                             </div>
+                        </div>
                     </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-12" style="text-align: justify;">
+                                <!-- <div class="box"> -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title" style="text-align: center;">What is Machine Learning?</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <p style="text-align: justify;">Having in mind the information and patterns we saw in the previous dashboards, 
+                                                the next step was to train a model with all the information available and considering
+                                                the relationships we identified among every digital and/or financial service <br> 
+                                                The fundamental question that we answer with this specific machine learning model is: <br><b>Which is the
+                                                predicted effect of financial and digital variables based on changes in other variables? </b><br>
+                                                For instance,<i> which is the effect of an increase in computer consumption in a municipality 
+                                                over streaming subscriptions?</i>
+                                            </p>
+                                        </div>
+                                    </div>                                               
+                                    <div class="card ">
+                                        <div class="card-header ">
+                                            <h4 class="card-title" style="text-align: center;">Model Efficiency</h4>
+                                        </div>
+                                        <div class="card-body ">
+                                            <p style="text-align: justify;">We tested our model for the 5 variables presented, obtaining the following results:</p>
+                                            <div class="table-responsive" id="table">
+                                                <table class="table"></table>
+                                            </div>
+                                            <hr>
+                                            <div class="stats">
+                                            <p stlye="text-align:left" class="smaller"> * The Mean Square Error (MSE) is the average squared difference between the estimated values and the actual value. This is a measure of the quality of our estimations. It means that values closer to zero are better.
+                                                <br> ** The coefficient of detemination (R<sup>2</sup>) tells how good is the model to explain the changes in the variable tested. The strength of the relationship between your model and the dependent variable goes from 0 to 1, where 1 is a perfect fit. In marketing research, R<sup>2</sup> values of 0.75, 0.50, 0.25 are considered as substantial, moderate or weak.
+                                                <a href="https://www.researchgate.net/post/what_is_the_acceptable_r-squared_value#:~:text=While%20for%20exploratory%20research%2C%20using,substantial%2C%20moderate%2C%20or%20weak" target="_blank"> Source</a>
+                                            </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+                            <div class="col-lg-7 col-md-12">
+                                <!-- <div class="box"> -->
+                                    <div class="card ">
+                                        <div class="card-header ">
+                                            <h4 class="card-title" style="text-align: center;">Heat Map - Digital vs Financial Services in Mexico 2020</h4>
+                                        </div>
+                                        <div class="card-body ">
+                                            <p style="text-align: justify;">Heatmap shows us the direct or indirect relationship of each variable with every other from the data.
+                                                In this case, the yellow square means a perfect 1 to 1 relationship, meaning that when X variable (e.g. PC) increases in 1% from its previous value, 
+                                                the other related variable (e.g. Internet) increases in the same proportion.
+                                                This can quickly tell us how related (or not) are two variables between them.
+                                            </p> <br>
+                                            <div id="heatmap"></div>
+                                        </div>
+                                        
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </div>
