@@ -31,12 +31,25 @@ And the most important one:
    5. Finally, you will see on the right side of the screen (or below on a cellphone) the results for the prediction, with a little advice. Further below you can see a little explanation and extra information about the Machine Learning Model and how we did it.
 
 ## Machine Learning process
-Pending
+The process to build the model includes the following steps: 
+* Read the json file with every feature for each municipality.
+* Feature analysis, based on:
+* Cleaning data process; 
+* Exploratory data analysis for each feature regarding digital and financial services, and 
+* Correlation analysis to give an indication of how related the changes are between two variables.
+* Feature reduction using Principal Component Analysis (PCA)
+* Normalize the dataset because PCA method is sensible to the scale.
+* Apply PCA method and reduce the dataframe with the principal components value for all municipalities.
+* Apply a ML regression model based on the dataset previously reduced for the best variables the PCA gave us (Credit cards, debit cards, mobile banking contracts, households with PC and streaming services)
+* Train-Test Split
+* Train the model
+* Test the model
+* Save the model
+* Load the model ready to be inserted in the web application
 
 ## Technologies used
 * Backend
   * Flask
-
 
 * Database
   * MongoDB Atlas
@@ -54,11 +67,38 @@ Pending
   * Python
   * Scikit-learn (ML Model)
 
-## Outcomes
-Pending
-
 # Usage
 The final Web Application is available for free use in the following [Heroku Deploy](https://financial-inclusion.herokuapp.com/index.html)
+
+## Outcomes
+Landing page
+
+![Landing](/static/img/Home.jpg)
+
+
+Historic background
+
+![Historic](/static/img/background.jpg)
+
+
+National Overview
+
+![National](/static/img/national.jpg)
+
+
+State Detail
+
+![State](/static/img/State.jpg)
+
+
+Machine Learning Model
+
+![ML](/static/img/ML.jpg)
+
+
+About
+
+![About](/static/img/about.jpg)
 
 # Sources
 All the data used can be found on the [Official INEGI website](https://www.inegi.org.mx/programas/ccpv/2020/#:~:text=El%20Censo%20de%20Poblaci%C3%B3n%20y,viviendas%20para%20obtener%20informaci%C3%B3n%20sobre)
